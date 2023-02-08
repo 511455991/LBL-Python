@@ -30,12 +30,15 @@ if __name__ == "__main__":
     num = man_list.count("张飞")          # 统计出现次数
     index1 = man_list.index("张飞")       # 查找元素下标，不存在会报错
     index2 = man_list.index("张飞",0)     # 查找元素第几次出现的下标
+    print(max(man_list))                 # 获取最大元素，排序方式是对象中的
+    print(min(man_list))                 # 获取最大元素，排序方式是对象中的
+    print("张飞" in man_list)             # in\not in判断是否在
     # 排序
     man_list.sort()             # 升序
     man_list.sort(reverse=True) # 降序
     man_list.reverse()          # 逆序，反转
-    # 去重:转元组去重
-    mans = tuple(man_list)
+    # 去重:转集合去重
+    mans = set(man_list)
 
     # 遍历列表元素
     for man in man_list:
