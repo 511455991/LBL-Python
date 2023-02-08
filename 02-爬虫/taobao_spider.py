@@ -50,6 +50,8 @@ class Taobao_spider(object):
             goods_info = {}
             # 商品图片
             pic = goods.find_element(By.CLASS_NAME,"img").get_attribute("data-src")
+            if "http" not in pic :
+                pic = "https://"+ pic
             goods_info.update({"picture":pic})
             # 商品价格
             price = goods.find_element(By.CSS_SELECTOR,".g_price strong").text
@@ -70,18 +72,26 @@ class Taobao_spider(object):
     def run(self):
         # 打开淘宝，搜索商品
         self.search_goods()
-
+        # 起始页1
         page_num = 1
         while True:
+            print("正在抓取第" + str(page_num) + "页商品信息")
             # 滑动页面到底部，加载全部页面
             self.scroll_to_end()
             # 清洗数据,获取商品信息
             self.get_goods_info()
             # 翻页
-
-
-
-
+            next_element = self.driver.find_element(By.CLASS_NAME,"next")
+            next_page = next_element.find_element(By.TAG_NAME,"a")
+            if next_page:
+                next_page.click()
+                time.sleep(2)
+                page_num += 1
+            else:
+                print("到末页了，抓取结束")
+                break
+        # 退出浏览器
+        self.driver.quit()
 
 
 
