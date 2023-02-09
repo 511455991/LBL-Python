@@ -1,10 +1,11 @@
 # encoding=utf-8
 
 """
-函数的使用 ,自定义函数、函数递归、匿名函数
+函数的使用 ,自定义函数、函数递归、匿名函数、函数装饰器
 author：LBL
 date:2023-2-9
 """
+import time
 
 g_num = 10
 
@@ -22,7 +23,10 @@ def re_fu(number):
     if number == 1:
         return 1
     else:
-        return  number * re_fun(number -1)
+        return number * re_fun(number -1)
+
+
+
 
 
 if __name__ == "__main__":
@@ -37,6 +41,26 @@ if __name__ == "__main__":
     # 简化版lambda表达式
     num = (lambda a, b: a if a > b else b)(3, 6)
     print(num)
+
+    print("-" * 40)
+    """ 函数装饰器，也叫语法糖，用来扩充函数功能"""
+    def my_decorator(func):
+        def inner():
+            start_time = time.time()
+            func()
+            end_time = time.time()
+            print("函数执行一共花费了{}的时间".format(end_time - start_time))
+        return inner        # 注意返回内容为内部函数，不是执行函数，没()
+
+    @my_decorator
+    def sleep_5s():
+        time.sleep(5)
+
+    sleep_5s()
+
+
+
+
 
 
 
