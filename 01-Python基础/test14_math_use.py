@@ -42,9 +42,14 @@ if __name__ == "__main__":
     n1 = random.randint(10,12)       # 在[10，12]范围生成随机整数
     n3 = random.choice([0,1,2,"a"])  # 在指定序列中随机获取一个元素，参数可字符串、列表、元组
     random.choice(range(10))
-    l1 = [0,1,2,"a"]                # 打乱列表顺序，重新排列
+    l1 = [0,1,2,"a"]                 # 打乱列表顺序，重新排列
     random.shuffle(l1)
     print(l1)
+
+    # map函数可以接收一个函数作为第一个参数，后面参数为可迭代列表，传递给前面的函数，类似for循环
+    # 使用map()函数计算1-9的平方结果
+    square_list = map(a, range(1, 10))
+    print(list(square_list))         # [1, 4, 9, 16, 25, 36, 49, 64, 81]
 
     # math模块
 
