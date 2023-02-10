@@ -9,3 +9,8 @@ test09：函数使用，函数的定义、匿名函数、函数装饰器
 test10：程序异常的处理  
 test11：文件读写操作  
 test12：面向对象oop  
+test13：包、模块的使用  
+test14：pyton中数学运算，随机random模块  
+test15：系统模块:os、sys  
+test16：常用模块:logging日志、time格式化输出时间、hashlib哈希值校验文件、keyword查看python关键词  
+test17：正则模块：re  
