@@ -20,7 +20,7 @@ taobao_spider ：使用selenium对淘宝商品信息爬虫
 
 + urllib.request 可发送请求并获取响应数据
 + requests 库需要额外安装，对urllib做了二次封装，更好用
-+ selenium 模拟手工操作，所见即所得
++ selenium 模拟手工操作，所见即所得，也会应用在web自动化测试上
 
 
 
