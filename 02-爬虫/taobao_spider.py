@@ -87,6 +87,10 @@ class Taobao_spider(object):
                 next_page.click()
                 time.sleep(2)
                 page_num += 1
+                # 不在屏幕上的按钮selenium自带click方法会点击不到，可执行js脚本
+                # button = self.driver.find_element(By.ID,ID)
+                # self.driver.execute_script("arguments[0].click();",button)
+
             else:
                 print("到末页了，抓取结束")
                 break
