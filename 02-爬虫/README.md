@@ -8,7 +8,9 @@ test01_urllib_use：urllib模块基本使用
 
 test02_requests_use：requests模块基本使用
 
-test03_selenium_use：selenium模块基本使用
+test03_session_use：requests.session的使用并使用beautifulsoup4清洗数据
+
+test04_selenium_use：selenium模块基本使用
 
 taobao_spider ：使用selenium对淘宝商品信息爬虫
 
