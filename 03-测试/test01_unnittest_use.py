@@ -35,7 +35,8 @@ class MyTest(unittest.TestCase):
 if __name__ == "__main__":
     # unittest.main()可以将一个单元测试的模块变为可以执行的脚本
     # unittest中testloader类来搜索以test开头的测试用例，并自动执行
-    # 在正常项目中，不用通过unittest.main方法执行，直接在上面右击运行。当项目文件有问题时右击无法直接执行测试用例可以这样
+    # 项目一但导入unittest，pycharm会自动将普通run运行模式换为 run unittest模式来执行用例，但有时不会加载出来，
+    # 打开右上角文件配置，可以看到有python和python test两个路径选项，挂在哪个下面就是哪个运行的
     print("方式一：直接执行")
     unittest.main()
 
