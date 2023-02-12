@@ -4,7 +4,7 @@
 
 ## 文件说明
 
-test01_unnittest_use：unnittest单元测试框架基本使用
+test01_unnittest_use：unnittest单元测试框架基本使用 ,HtmlTestRunner生成测试报告
 
 test02_interface_use：requests模块实现接口自动化测试
 
