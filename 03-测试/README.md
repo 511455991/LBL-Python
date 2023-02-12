@@ -6,7 +6,7 @@
 
 test01_unnittest_use：unnittest单元测试框架基本使用 ,HtmlTestRunner生成测试报告
 
-test02_interface_use：requests模块实现接口自动化测试
+test02_interface_use：unittest结合requests实现接口自动化测试，使用parameterized实现参数化
 
 
 
