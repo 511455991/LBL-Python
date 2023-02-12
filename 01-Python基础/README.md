@@ -14,3 +14,6 @@ test14：pyton中数学运算，随机random模块
 test15：系统模块:os、sys  
 test16：常用模块:logging日志、time格式化输出时间、hashlib哈希值校验文件、keyword查看python关键词  
 test17：正则模块：re  
+
+
+test23：GUI模块：TKinter，做一个网易云音乐爬取器，并使用pyinstaller打包为exe
