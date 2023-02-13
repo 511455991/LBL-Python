@@ -43,7 +43,7 @@ class DBUtil():
             cursor = cls.__get_cursor()
             cursor.execute(sql)
             # 如果sql语句是查询语句，直接返回所有查询结果
-            if sql.split()[0].lower == "select":
+            if sql.split()[0].lower() == "select":
                 return cursor.fetchall()
             # 如果不是查询语句，就需要手动提交语句，返回被影响行数
             else:
@@ -71,9 +71,10 @@ if __name__ == "__main__":
             4、关闭游标、关闭连接
     pymysql默认开启了事务，即：所有修改数据库的操作不会自动提交，执行后需要手动提交或回滚
     """
-    pass
-    sql1 = "insert into tb_user(id,username,password) values(3 ,'xiaohong','123')"    # 插入语句
-    sql2 = "update tb_user set password='789' where id='3' ;"  # 更新表中数据
-    sql3 = "delete from tb_user where id='3';"                 # 删除表中数据
-    sql4 = "select * from tb_user;"
-    DBUtil.exec_sql(sql4)
+    sql = "select version()"
+    sql1 = "insert into students(name,birthday) values('xiaohong','2022-1-2')"    # 插入语句
+    sql2 = "update students set birthday='1999-1-1' where id='3' ;"               # 更新表中数据
+    sql3 = "delete from students where id='3';"                                   # 删除表中数据
+    sql4 = "select * from students;"                                              # 查询语句
+    result = DBUtil.exec_sql(sql3)
+    print(result)
