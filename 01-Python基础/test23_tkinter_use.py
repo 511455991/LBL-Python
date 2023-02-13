@@ -87,9 +87,14 @@ if __name__ == "__main__":
     input("please input any key to exit")
 
 
+
 # 程序打包成exe:
 # 1、安装第三方模块 pip install pyinstaller
 # 2、执行cmd命令：pyinstaller -F -i test23_tkinter_use.py -w
 # 打包的exe运行可能出现闪退情况，解决方法，在主函数程序最后以行加额外代码让程序处于等待状态： input("please input any key to exit")
-
+# 调试闪退问题：由于闪退看不到报错，可以cmd运行打包的程序如test.exe就可以看到报错了。
+# 本地python环境问题也会导致打包出的程序有问题，可能换台电脑打包的就能执行，检查环境
+# 可能引起错误原因：
+# 程序中使用到的外部文件的路径与.exe的相对位置与程序中的不同，使得引用的资源文件丢失。
+# 本地存在多个版本的python，打包成.exe程序的时候使用了与被打包程序不匹配的python对应的pyinstaller，导致打包之后的程序缺少了依赖的包。
 
