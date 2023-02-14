@@ -1,13 +1,14 @@
 # encoding=utf-8
 
 """
-包、模块的概念
+包、模块的概念、pip
 author：LBL
 date:2023-2-9
 """
 
 """python通过pip管理第三方依赖类库，查看版本pip -V
 安装卸载包 pip/pip3 install/uninstall 【module_name】
+指定txt文件批量安装依赖 pip3 install -r requirements.txt	txt中一行写一个依赖包名
 查看已安装的模块 pip list|findstr 【module_name】
 
 模块(module)：一个.py文件就是一个模块.
