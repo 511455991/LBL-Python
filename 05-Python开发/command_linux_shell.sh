@@ -169,8 +169,107 @@ case $1 in
     echo "其他字符"						# 最后*)分支可以不用;;结尾，因为本身执行到esac也结束了
 esac
 
+
 <<a
 循环结构(while ; until；for；for in ; select in)
-
 a
+# while循环
+i=1;sum=0			
+while(( i<=100 ));do					# while在条件成立时会循环。计算0-100累加
+  (( sum+=i ))
+  (( i++ ))
+done
+echo "sum:$sum"
 
+# until循环
+i=1;sum=0								# until在条件不成立时才会循环。与while相反
+until (( i>100 ));do
+  (( sum+=i ))
+  (( i++ ))
+  if sum >200 ;break 1					# break n用来跳出循环,n为循环层数，不写为所有循环
+done									# continue n 用来跳过几次循环，默认一次
+echo "sum:$sum"
+
+
+# for循环
+sum=0
+for ((i=1; i<=100; i++));do				# for循环计算0-100累加。三个条件与java类似
+  (( sum+=i ))
+done
+echo "sum:$sum"
+
+# for  in 语句
+nums=(10 20 30)
+for num in $nums[*];do					# for循环 遍历数组元素
+  if num==20;then
+break
+  elseif num==30;then
+continue
+  fi
+  echo `expr num*2`
+done
+
+# select in 语句			 			select in语句类似于for in，但显示带编号的菜单，用户输入编号可以选择，完成交互.通常和case in 一起使用
+echo “what is you favourite OS?”
+select name in "linux" "windows" "mac";do
+	case $name in 
+	"linux")
+		echo “linux是一个开源系统”			# 用户选择后执行的语句
+		brek;;
+	"windows")
+		echo “windows是一个闭源收费系统”
+		break;;
+	"mac")
+		echo “mac是苹果公司的”
+		break;;								# 是无限死循环，ctrl+d或者遇到break才会退出
+	*)
+		echo “输入错误”
+done
+
+
+<<a
+函数定义和调用、代码块
+a
+# 函数的定义和调用
+function func(){
+	echo “language: $1”
+	echo “URL: $2”
+	retrun `expr 1+1` 					# retrun为函数返回值。expr数学运算
+}
+func C++ http://www.baidu.com			# 调用函数，传两个位置参数。
+echo $?									# 获取函数返回值。
+
+
+
+# 代码块，开始符和结束符之间的内容是一个整体，可以直接打印、存入变量、
+cat <<EOF								# 举例：显示一个菜单给用户，让用户输入字母选择功能。
+d|D) show disk usages.	<<EOF代码块，EOF为结束符，当输入内容为EOF时结束
+m|M) show memory usages.
+s|S) show swap usages.
+*) quit.
+EOF
+read -p "Your choice:" CHOICE
+
+mysql -uroot -p12345 <<EOF				# 举例：自动登录mysql查询表并退出
+use test;
+select * from students where id<10;
+exit;
+EOF
+
+tee /etc/a.txt <<'EOF'					# 举例:将代码块内容写入到a.txt文件中。tee命令是从标准输入读取内容写入文件或标准输出							
+ 这些是被写入文件的内容
+ 
+EOF
+
+$a <<EOF								# 举例：将代码块所有字符都存入变量a中
+		代码块重定向，EOF分界符可随意指定。
+		常与cat命令一起使用，显示一大块文本内容
+EOF
+echo $a
+
+
+
+
+exit 0				# exit代表退出当前脚本。0为状态码
+
+bash -n a.sh		# 检测a.sh脚本正确性
