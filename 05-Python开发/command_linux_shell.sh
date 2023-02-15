@@ -1,206 +1,206 @@
 ##############################################################################################################
-# shell½Å±¾µÄÊ¹ÓÃ
-# file£ºcommand_linux_shell.sh
-# author£ºLBL
-# date£º2023-2-15
+# shellè„šæœ¬çš„ä½¿ç”¨
+# fileï¼šcommand_linux_shell.sh
+# authorï¼šLBL
+# dateï¼š2023-2-15
 #	 	
-# linuxÏµÍ³ÖÐÓÃ»§Í¨¹ýshell¹µÍ¨ÄÚºË£¬Ê×ÐÐshebangÖ¸¶¨µÄ½âÊÍÆ÷»á±»ÓÅÏÈÊ¹ÓÃ£¬³£¼û½âÊÍÆ÷£ºsh£¬bash£¬cshell£¬kshellµÈ
-# ÔÚwindowÖÐÊ¹ÓÃ¼ÇÊÂ±¾±àÐ´utf-8¸ñÊ½ÎÄ¼þ»á×Ô¶¯ÔÚÎÄ¼þÖÐ¼ÓBOMÍ·£ºEF BB BFÈý¸ö×Ö½Ú£¬ \
-# µ¼ÖÂÒÆÖ²µ½linuxÖÐÎÞ·¨Ê¹ÓÃ£¬¿ÉÊ¹ÓÃsublime±à¼­Æ÷µ÷Õû±àÂë
-# shell½Å±¾ÒªÔËÐÐÐèÒªÏÈÌí¼ÓÖ´ÐÐÈ¨ÏÞ¡£
-# ÔËÐÐµÄ¼¸ÖÖ·½Ê½£º	./a.sh    			Ö´ÐÐµ±Ç°Ä¿Â¼ÏÂµÄa½Å±¾,²»¼Ó./»áµ½PATHÂ·¾¶È¥ÕÒ£¬È»ºóÕÒ²»µ½±¨´í¡£
-#		/bin/bash a.sh		¿ªÒ»¸ö×Ó½ø³Ì£¬Ö±½ÓÖ¸¶¨½âÊÍÆ÷À´ÔËÐÐ½Å±¾¡£
-# 		bash a.sh			/bin/bashµÄ¼òÐ´
-# 		source a.sh		sourceÃüÁî»áÔÚÔ­½ø³ÌÖÐÖ´ÐÐÇ¿ÖÆÖ´ÐÐÎÄ¼þÖÐµÄÃüÁî¡£²»¹Ø×¢ÓÐÎÞÈ¨ÏÞ¡£²»¿ª×Ó½ø³Ì¡£
-# 		 . a.sh			ÊÇsourceµÄ¼òÐ´
-#		bash -x a.sh		-x²ÎÊý¿É²é¿´½Å±¾µÄÔËÐÐ¹ý³Ì£¬µ÷ÊÔ½Å±¾Ê¹ÓÃ
+# linuxç³»ç»Ÿä¸­ç”¨æˆ·é€šè¿‡shellæ²Ÿé€šå†…æ ¸ï¼Œé¦–è¡ŒshebangæŒ‡å®šçš„è§£é‡Šå™¨ä¼šè¢«ä¼˜å…ˆä½¿ç”¨ï¼Œå¸¸è§è§£é‡Šå™¨ï¼šshï¼Œbashï¼Œcshellï¼Œkshellç­‰
+# åœ¨windowä¸­ä½¿ç”¨è®°äº‹æœ¬ç¼–å†™utf-8æ ¼å¼æ–‡ä»¶ä¼šè‡ªåŠ¨åœ¨æ–‡ä»¶ä¸­åŠ BOMå¤´ï¼šEF BB BFä¸‰ä¸ªå­—èŠ‚ï¼Œ \
+# å¯¼è‡´ç§»æ¤åˆ°linuxä¸­æ— æ³•ä½¿ç”¨ï¼Œå¯ä½¿ç”¨sublimeç¼–è¾‘å™¨è°ƒæ•´ç¼–ç 
+# shellè„šæœ¬è¦è¿è¡Œéœ€è¦å…ˆæ·»åŠ æ‰§è¡Œæƒé™ã€‚
+# è¿è¡Œçš„å‡ ç§æ–¹å¼ï¼š	./a.sh    		æ‰§è¡Œå½“å‰ç›®å½•ä¸‹çš„aè„šæœ¬,ä¸åŠ ./ä¼šåˆ°PATHè·¯å¾„åŽ»æ‰¾ï¼Œç„¶åŽæ‰¾ä¸åˆ°æŠ¥é”™ã€‚
+#		/bin/bash a.sh		å¼€ä¸€ä¸ªå­è¿›ç¨‹ï¼Œç›´æŽ¥æŒ‡å®šè§£é‡Šå™¨æ¥è¿è¡Œè„šæœ¬ã€‚
+# 		bash a.sh			/bin/bashçš„ç®€å†™
+# 		source a.sh		sourceå‘½ä»¤ä¼šåœ¨åŽŸè¿›ç¨‹ä¸­æ‰§è¡Œå¼ºåˆ¶æ‰§è¡Œæ–‡ä»¶ä¸­çš„å‘½ä»¤ã€‚ä¸å…³æ³¨æœ‰æ— æƒé™ã€‚ä¸å¼€å­è¿›ç¨‹ã€‚
+# 		 . a.sh			æ˜¯sourceçš„ç®€å†™
+#		bash -x a.sh		-xå‚æ•°å¯æŸ¥çœ‹è„šæœ¬çš„è¿è¡Œè¿‡ç¨‹ï¼Œè°ƒè¯•è„šæœ¬ä½¿ç”¨
 ############################################################################################################## 				  
 
 
 #!/bin/bash
 <<comment
-	1¡¢¿ÉÓÃÀ´×ö¶àÐÐ×¢ÊÍ
-	2¡¢³£ÓÃÀ´ÃèÊöÒ»¸öº¯ÊýµÄÓÃ·¨ËµÃ÷
-	3¡¢Ê¹ÓÃÈÎÒâ×Ö·û´®£¬²»Ò»¶¨ÊÇcomment
+	1ã€å¯ç”¨æ¥åšå¤šè¡Œæ³¨é‡Š
+	2ã€å¸¸ç”¨æ¥æè¿°ä¸€ä¸ªå‡½æ•°çš„ç”¨æ³•è¯´æ˜Ž
+	3ã€ä½¿ç”¨ä»»æ„å­—ç¬¦ä¸²ï¼Œä¸ä¸€å®šæ˜¯comment
 	
-	ÊäÈëÊä³öºÍ±äÁ¿
+	è¾“å…¥è¾“å‡ºå’Œå˜é‡
 comment
 
-# ÊäÈë¡£read¶ÁÈ¡
-read -t5 -p ¡®ÇëÊäÈëÁ½¸öÊý×Ö¡¯ A B	# read¶ÁÈ¡ÓÃ»§ÊäÈë-t5Ãë-pÌáÊ¾ÐÅÏ¢
-[ -z $A ] && A=100			# Èç¹ûAÎª¿Õ£¬¾Í½«A¸³Öµ100
-echo ¡°$A+$BµÄ½á¹ûÊÇ$[$A+$B]¡±	# Êä³öA+B½á¹û
+# è¾“å…¥ã€‚readè¯»å–
+read -t5 -p â€˜è¯·è¾“å…¥ä¸¤ä¸ªæ•°å­—â€™ A B	# readè¯»å–ç”¨æˆ·è¾“å…¥-t5ç§’-pæç¤ºä¿¡æ¯
+[ -z $A ] && A=100			# å¦‚æžœAä¸ºç©ºï¼Œå°±å°†Aèµ‹å€¼100
+echo â€œ$A+$Bçš„ç»“æžœæ˜¯$[$A+$B]â€	# è¾“å‡ºA+Bç»“æžœ
 
-# Êä³ö¡£				echo´òÓ¡£¬´òÓ¡±äÁ¿¡£printf´òÓ¡£¬ÓëechoÀàËÆ£¬ÓÐÐ©²»Í¬
-echo ½Å±¾¿ªÊ¼			# ´òÓ¡×Ö·û´®	
-echo $1				# $nÎªÎ»ÖÃ²ÎÊý¡£¼´Ö´ÐÐ½Å±¾Ê±´«µÝµÄ²ÎÊý£¬nÎªÊý×Ö
-echo $0				# $0Îªµ±Ç°½Å±¾ÎÄ¼þÃû
-echo $*				# $*Îª½Å±¾ËùÓÐ²ÎÊý
-echo $#				# $#Îª½Å±¾²ÎÊýÊýÁ¿
-echo $?				# $?ÎªÉÏÒ»ÌõÃüÁîµÄÍË³ö×´Ì¬Âë¡£³É¹¦0Ê§°Ü1¡£»òÉÏÒ»¸öÖ´ÐÐµÄº¯Êý·µ»ØÖµ
-echo $$				# $$Îªµ±Ç°½ø³ÌµÄPID
+# è¾“å‡ºã€‚				echoæ‰“å°ï¼Œæ‰“å°å˜é‡ã€‚printfæ‰“å°ï¼Œä¸Žechoç±»ä¼¼ï¼Œæœ‰äº›ä¸åŒ
+echo è„šæœ¬å¼€å§‹			# æ‰“å°å­—ç¬¦ä¸²	
+echo $1				# $nä¸ºä½ç½®å‚æ•°ã€‚å³æ‰§è¡Œè„šæœ¬æ—¶ä¼ é€’çš„å‚æ•°ï¼Œnä¸ºæ•°å­—
+echo $0				# $0ä¸ºå½“å‰è„šæœ¬æ–‡ä»¶å
+echo $*				# $*ä¸ºè„šæœ¬æ‰€æœ‰å‚æ•°
+echo $#				# $#ä¸ºè„šæœ¬å‚æ•°æ•°é‡
+echo $?				# $?ä¸ºä¸Šä¸€æ¡å‘½ä»¤çš„é€€å‡ºçŠ¶æ€ç ã€‚æˆåŠŸ0å¤±è´¥1ã€‚æˆ–ä¸Šä¸€ä¸ªæ‰§è¡Œçš„å‡½æ•°è¿”å›žå€¼
+echo $$				# $$ä¸ºå½“å‰è¿›ç¨‹çš„PID
 
 
-# ±äÁ¿ÊôÐÔ
-declare			# declareÓÃÀ´ÉùÃ÷±äÁ¿£¬declareÉùÃ÷µÄÄ¬ÈÏÊÇ¾Ö²¿±äÁ¿
-			# -gÉùÃ÷È«¾Ö±äÁ¿
-declare -i SUM=0		# -iÉùÃ÷ÕûÊý±äÁ¿
-			# -aÉùÃ÷Êý×é±äÁ¿
-			# -rÉùÃ÷Ö»¶Á±äÁ¿
-			# -pÏÔÊ¾¶¨Òå±äÁ¿µÄÓï¾ä£¬¼´ÊôÐÔºÍÖµ
+# å˜é‡å±žæ€§
+declare			# declareç”¨æ¥å£°æ˜Žå˜é‡ï¼Œdeclareå£°æ˜Žçš„é»˜è®¤æ˜¯å±€éƒ¨å˜é‡
+			# -gå£°æ˜Žå…¨å±€å˜é‡
+declare -i SUM=0		# -iå£°æ˜Žæ•´æ•°å˜é‡
+			# -aå£°æ˜Žæ•°ç»„å˜é‡
+			# -rå£°æ˜Žåªè¯»å˜é‡
+			# -pæ˜¾ç¤ºå®šä¹‰å˜é‡çš„è¯­å¥ï¼Œå³å±žæ€§å’Œå€¼
 
-local			# localÓÃÀ´ÉèÖÃ¾Ö²¿±äÁ¿¡£±äÁ¿µÄ×÷ÓÃÓòÄ¬ÈÏÊÇÈ«¾Ö
-local name=¡±ÕÅÈý¡±
+local			# localç”¨æ¥è®¾ç½®å±€éƒ¨å˜é‡ã€‚å˜é‡çš„ä½œç”¨åŸŸé»˜è®¤æ˜¯å…¨å±€
+local name=â€å¼ ä¸‰â€
 
-begin_time=`date`			# `ÃüÁî`¿É»ñÈ¡ÃüÁî½á¹û×÷Îª±äÁ¿		»ñÈ¡µ±Ç°Ê±¼ä½»¸øbegin_time
-readonly begin_time			# ½«±äÁ¿ÉèÖÃÎªÖ»¶Á£¬²»¿ÉÐÞ¸Ä
-log=$(cat log.txt)			# $()Í¬` `,¶¼ÊÇÖ´ÐÐÃüÁî,``²»ÄÜÇ¶Ì×£¬$()¿ÉÒÔÇ¶Ì×µ«Ö»ÔÚbash½âÊÍÆ÷ÓÐÐ§
+begin_time=`date`			# `å‘½ä»¤`å¯èŽ·å–å‘½ä»¤ç»“æžœä½œä¸ºå˜é‡		èŽ·å–å½“å‰æ—¶é—´äº¤ç»™begin_time
+readonly begin_time			# å°†å˜é‡è®¾ç½®ä¸ºåªè¯»ï¼Œä¸å¯ä¿®æ”¹
+log=$(cat log.txt)			# $()åŒ` `,éƒ½æ˜¯æ‰§è¡Œå‘½ä»¤,``ä¸èƒ½åµŒå¥—ï¼Œ$()å¯ä»¥åµŒå¥—ä½†åªåœ¨bashè§£é‡Šå™¨æœ‰æ•ˆ
 echo $log		
-unset log				# É¾³ý±äÁ¿,²»ÄÜÉ¾³ýÖ»¶Á±äÁ¿
+unset log				# åˆ é™¤å˜é‡,ä¸èƒ½åˆ é™¤åªè¯»å˜é‡
 
-# ×Ö·û´®±äÁ¿¡£			shellÖÐ±äÁ¿Ä¬ÈÏÖµ¶¼ÊÇ×Ö·û´®£¬=Á½±ß²»ÄÜÓÐ¿Õ¸ñ£¬±äÁ¿Ê¹ÓÃ²ÅÐèÒª¼Ó$£¬ÖØÐÂ¸³Öµ²»ÓÃ
-NAME=¡°±±¾©ÕÅÈýµÄ±±¾©µÜµÜ¡±	# ¶¨Òå±äÁ¿
-echo ¡°${NAME}ÔÚ¹¤×÷¡±		# ${}Êä³ö±äÁ¿¡£{}¿ÉÊ¡ÂÔ£¬²»½¨ÒéÊ¡ÂÔ¡£   		±±¾©ÕÅÈýµÄ±±¾©µÜµÜÔÚ¹¤×÷
-echo ¡®${NAME}ÔÚ¹¤×÷¡¯		# µ¥ÒýºÅÇ¿ÒýÓÃ£¬Ëù¼û¼´ËùµÃ¡£ 			${NAME}ÔÚ¹¤×÷
-echo  ${#NAME} 			# ${#}»ñÈ¡×Ö·û´®³¤¶È
-echo  ${NAME:0:2}			# ´Ó×ó½ØÈ¡×Ö·û´®£¬${string:begin:length}		±±¾©
-echo  ${NAME:6}			# Ê¡ÂÔlength¿É½ØÈ¡µ½Ä©Î²¡£			µÜµÜ
-echo  ${NAME:0-2:2}			# ´ÓÓÒ½ØÈ¡×Ö·û´®£¬${string:0-begin:length}  	µÜµÜ
-echo  ${NAME:0-2}			# Ê¡ÂÔlength£¬´ÓÓÒ¿ªÊ¼½ØÈ¡µ½Ä©Î²		µÜµÜ
-echo  ${NAME#*¾©}			# ${string#}´ÓÍ·Æ¥ÅäÖ¸¶¨×Ö·û´®ºóµÄÄÚÈÝ		ÕÅÈýµÄ±±¾©µÜµÜ
-echo  ${NAME##*±±¾©}		# ${string##}´ÓÎ²Æ¥ÅäÖ¸¶¨×Ö·û´®ºóµÄÄÚÈÝ¡£	µÜµÜ
-echo  ${NAME%*ÕÅÈý}			# ${string%}Æ¥ÅäÖ¸¶¨×Ö·û´®Ç°µÄÄÚÈÝ	±±¾©
+# å­—ç¬¦ä¸²å˜é‡ã€‚			shellä¸­å˜é‡é»˜è®¤å€¼éƒ½æ˜¯å­—ç¬¦ä¸²ï¼Œ=ä¸¤è¾¹ä¸èƒ½æœ‰ç©ºæ ¼ï¼Œå˜é‡ä½¿ç”¨æ‰éœ€è¦åŠ $ï¼Œé‡æ–°èµ‹å€¼ä¸ç”¨
+NAME=â€œåŒ—äº¬å¼ ä¸‰çš„åŒ—äº¬å¼Ÿå¼Ÿâ€	# å®šä¹‰å˜é‡
+echo â€œ${NAME}åœ¨å·¥ä½œâ€		# ${}è¾“å‡ºå˜é‡ã€‚{}å¯çœç•¥ï¼Œä¸å»ºè®®çœç•¥ã€‚   		åŒ—äº¬å¼ ä¸‰çš„åŒ—äº¬å¼Ÿå¼Ÿåœ¨å·¥ä½œ
+echo â€˜${NAME}åœ¨å·¥ä½œâ€™		# å•å¼•å·å¼ºå¼•ç”¨ï¼Œæ‰€è§å³æ‰€å¾—ã€‚ 			${NAME}åœ¨å·¥ä½œ
+echo  ${#NAME} 			# ${#}èŽ·å–å­—ç¬¦ä¸²é•¿åº¦
+echo  ${NAME:0:2}			# ä»Žå·¦æˆªå–å­—ç¬¦ä¸²ï¼Œ${string:begin:length}		åŒ—äº¬
+echo  ${NAME:6}			# çœç•¥lengthå¯æˆªå–åˆ°æœ«å°¾ã€‚			å¼Ÿå¼Ÿ
+echo  ${NAME:0-2:2}			# ä»Žå³æˆªå–å­—ç¬¦ä¸²ï¼Œ${string:0-begin:length}  	å¼Ÿå¼Ÿ
+echo  ${NAME:0-2}			# çœç•¥lengthï¼Œä»Žå³å¼€å§‹æˆªå–åˆ°æœ«å°¾		å¼Ÿå¼Ÿ
+echo  ${NAME#*äº¬}			# ${string#}ä»Žå¤´åŒ¹é…æŒ‡å®šå­—ç¬¦ä¸²åŽçš„å†…å®¹		å¼ ä¸‰çš„åŒ—äº¬å¼Ÿå¼Ÿ
+echo  ${NAME##*åŒ—äº¬}		# ${string##}ä»Žå°¾åŒ¹é…æŒ‡å®šå­—ç¬¦ä¸²åŽçš„å†…å®¹ã€‚	å¼Ÿå¼Ÿ
+echo  ${NAME%*å¼ ä¸‰}			# ${string%}åŒ¹é…æŒ‡å®šå­—ç¬¦ä¸²å‰çš„å†…å®¹	åŒ—äº¬
 
-# Êý×é±äÁ¿
-nums=(11 243 23 )			# ¶¨ÒåÊý×éÓÃ(),ÔªËØÊ¹ÓÃ¿Õ¸ñ·Ö¸î
-nums+=(7 ¡°Ð¡Ã÷¡±)			# Ìí¼ÓÔªËØ¡£				11 243 23 7 Ð¡Ã÷
-nums[2]=45			# ÐÞ¸ÄÔªËØ¡£				11 243 45 7 Ð¡Ã÷
-unset ${nums[2]}			# É¾³ýÊý×éÖÐÔªËØ				11 243 7 Ð¡Ã÷
-echo ${nums[0]}			# »ñÈ¡Êý×éÖÐÔªËØ				11
-echo ${nums[*]}			# »ñÈ¡Êý×éËùÓÐÔªËØ¡£$arr[*]»òÕß$arr[@]		11 243 45 7 Ð¡Ã÷
-echo ${#nums[*]}			# »ñÈ¡Êý×é¸öÊý¡£				5
-echo ${#nums[1]}			# »ñÈ¡Êý×éÖÐÄ³ÔªËØ³¤¶È¡£			3
+# æ•°ç»„å˜é‡
+nums=(11 243 23 )			# å®šä¹‰æ•°ç»„ç”¨(),å…ƒç´ ä½¿ç”¨ç©ºæ ¼åˆ†å‰²
+nums+=(7 â€œå°æ˜Žâ€)			# æ·»åŠ å…ƒç´ ã€‚				11 243 23 7 å°æ˜Ž
+nums[2]=45			# ä¿®æ”¹å…ƒç´ ã€‚				11 243 45 7 å°æ˜Ž
+unset ${nums[2]}			# åˆ é™¤æ•°ç»„ä¸­å…ƒç´ 				11 243 7 å°æ˜Ž
+echo ${nums[0]}			# èŽ·å–æ•°ç»„ä¸­å…ƒç´ 				11
+echo ${nums[*]}			# èŽ·å–æ•°ç»„æ‰€æœ‰å…ƒç´ ã€‚$arr[*]æˆ–è€…$arr[@]		11 243 45 7 å°æ˜Ž
+echo ${#nums[*]}			# èŽ·å–æ•°ç»„ä¸ªæ•°ã€‚				5
+echo ${#nums[1]}			# èŽ·å–æ•°ç»„ä¸­æŸå…ƒç´ é•¿åº¦ã€‚			3
 nums1=(11 12)
 nums2=(13 14)
-nums3=($nums1[*] $nums2[*])		# Êý×éÆ´½Ó
+nums3=($nums1[*] $nums2[*])		# æ•°ç»„æ‹¼æŽ¥
 
 
-# ÔËËã·û+  -  *  /  %  **  ++  --  +=  -+  *=  /=
-num=`expr 2+2`			# ÕûÊýÔËËã£¬bash±¾Éí±äÁ¿¶¼µ±³É×Ö·û´®²»Ö§³Ö¼ÆËã£¬exprÊÇ¼ÆËãÃüÁî
-num2=$(( 10 - 8 ))			# ÕûÊýÔËËã£¬(( ))Í¬expr¡£È¡½á¹ûÐèÒª¼Ó$
-num2=$((i=i+10))			# (())»á×Ô¶¯½âÎöÄÚ²¿±äÁ¿£¬ÀïÃæµÄ±äÁ¿¼ÆËãÊ±²»ÓÃ¼Ó$
-num3=`bc 1.1+1.2`			# bcÊÇÍâ²¿¼ÆËãÆ÷£¬¿ÉÐ¡ÊýÔËËã£¬shell±¾ÉíÖ»¿ÉÒÔÕûÊý¼ÆËã
-if ((10 >9 ));then			# Ò²¿ÉÓÃÀ´×ö±È½ÏÌõ¼þ¡£
+# è¿ç®—ç¬¦+  -  *  /  %  **  ++  --  +=  -+  *=  /=
+num=`expr 2+2`			# æ•´æ•°è¿ç®—ï¼Œbashæœ¬èº«å˜é‡éƒ½å½“æˆå­—ç¬¦ä¸²ä¸æ”¯æŒè®¡ç®—ï¼Œexpræ˜¯è®¡ç®—å‘½ä»¤
+num2=$(( 10 - 8 ))			# æ•´æ•°è¿ç®—ï¼Œ(( ))åŒexprã€‚å–ç»“æžœéœ€è¦åŠ $
+num2=$((i=i+10))			# (())ä¼šè‡ªåŠ¨è§£æžå†…éƒ¨å˜é‡ï¼Œé‡Œé¢çš„å˜é‡è®¡ç®—æ—¶ä¸ç”¨åŠ $
+num3=`bc 1.1+1.2`			# bcæ˜¯å¤–éƒ¨è®¡ç®—å™¨ï¼Œå¯å°æ•°è¿ç®—ï¼Œshellæœ¬èº«åªå¯ä»¥æ•´æ•°è®¡ç®—
+if ((10 >9 ));then			# ä¹Ÿå¯ç”¨æ¥åšæ¯”è¾ƒæ¡ä»¶ã€‚
     pass
 
 
 <<a
-ÅÐ¶ÏÓï¾ä if
-×éºÏÌõ¼þ£º
-	-a 	Óë¹ØÏµ¡£	Í¬&&£¬&ÊÇµ¥Óë£¬Ç°Ò»¸öÎª0»¹»áÖ´ÐÐºóÒ»¸ö£»&&ÊÇË«Óë£¬Ç°Îª0Ö±½Ó·µ»Ø0 £¬Ð§ÂÊ¸ü¸ß¡£
-	-o 	»ò¹ØÏµ¡£	Í¬||
-	£¡ 	·Ç¹ØÏµ¡£
-ÕûÊý²âÊÔ£º
-	-lt Ð¡ÓÚ			less than 
-	-le Ð¡ÓÚµÈÓÚ		less than or equal
-	-gt ´óÓÚ			great than 
-	-ge ´óÓÚµÈÓÚ		great than or equal
-	-eq µÈÓÚ			equal
-	-ne ²»µÈÓÚ			not equal
-×Ö·û²âÊÔ£ºshellÖÐ==  !=  < > Ö»ÄÜÓÃÀ´±È½Ï×Ö·û´®²»ÄÜ±È½ÏÊý×Ö
-	-n 	ÅÐ¶Ï×Ö·û´®ÊÇ·ñÎª·Ç¿Õ
-	-z 	ÅÐ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ
-	== 	ÅÐ¶ÏÊÇ·ñÏàµÈ¡£Í¬=
-	!= 	ÅÐ¶ÏÊÇ·ñ²»µÈ
-	\> 	ÅÐ¶Ï×Ö·ûÒ»ÊÇ·ñ´óÓÚ×Ö·û¶þ£¬\ÊÇ×ªÒå
-	\< 	ÅÐ¶Ï×Ö·ûÒ»ÊÇ·ñÐ¡ÓÚ×Ö·û¶þ
-	=~	ÅÐ¶Ï×Ö·ûÊÇ·ñÆ¥ÅäÓÒ²àÕýÔò
-ÎÄ¼þ²âÊÔ£º
-	test	test ¿ÉÒÔ¶ÔÎÄ¼þ»ò×Ö·û´®½øÐÐ¼ì²â£¬ÅÐ¶ÏÄ³Ìõ¼þÊÇ·ñ³ÉÁ¢
-	[  ]	test¿ÉÓÃ[  ]´úÌæ£¬if test -w /etc µÈÓÚ if[ -w /etc ]£¬[  ]ÄÚ²¿Á½±ß±ØÐëÓÒ¿Õ¸ñ
-	[[  ]]	[[ ]]Ö§³Ö&&¡¢||ÕâÖÖ·ûºÅ£¬¿É¶ÁÐÔ¸üºÃ,½¨ÒéÊ¹ÓÃ¡£[]ÖÐÖ»ÄÜÊ¹ÓÃ-a -o £¡
-			³£ÓÃÑ¡ÏîÈçÏÂ£¬»¹ÓÐÆäËûÑ¡Ïî
-				-e ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ¡£³£ÅÐ¶ÏÖ´ÐÐ½Å±¾Ê±²ÎÊýËùÐ´ÎÄ¼þÊÇ·ñ´æÔÚÈç$1
-				-f ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ£¬ÇÒÎªÆÕÍ¨ÎÄ¼þ
-				-d ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ£¬ÇÒÎªÄ¿Â¼ÎÄ¼þ
-				-r ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ£¬ÇÒÓÐ¶ÁÈ¨ÏÞ
-				-w ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ£¬ÇÒÓÐÐ´È¨ÏÞ
-				-x ÅÐ¶ÏÎÄ¼þÊÇ·ñ´æÔÚ£¬ÇÒÓÐÖ´ÐÐÈ¨ÏÞ
-				-n ÅÐ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ
+åˆ¤æ–­è¯­å¥ if
+ç»„åˆæ¡ä»¶ï¼š
+	-a 	ä¸Žå…³ç³»ã€‚	åŒ&&ï¼Œ&æ˜¯å•ä¸Žï¼Œå‰ä¸€ä¸ªä¸º0è¿˜ä¼šæ‰§è¡ŒåŽä¸€ä¸ªï¼›&&æ˜¯åŒä¸Žï¼Œå‰ä¸º0ç›´æŽ¥è¿”å›ž0 ï¼Œæ•ˆçŽ‡æ›´é«˜ã€‚
+	-o 	æˆ–å…³ç³»ã€‚	åŒ||
+	ï¼ 	éžå…³ç³»ã€‚
+æ•´æ•°æµ‹è¯•ï¼š
+	-lt å°äºŽ			less than 
+	-le å°äºŽç­‰äºŽ		less than or equal
+	-gt å¤§äºŽ			great than 
+	-ge å¤§äºŽç­‰äºŽ		great than or equal
+	-eq ç­‰äºŽ			equal
+	-ne ä¸ç­‰äºŽ			not equal
+å­—ç¬¦æµ‹è¯•ï¼šshellä¸­==  !=  < > åªèƒ½ç”¨æ¥æ¯”è¾ƒå­—ç¬¦ä¸²ä¸èƒ½æ¯”è¾ƒæ•°å­—
+	-n 	åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºéžç©º
+	-z 	åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
+	== 	åˆ¤æ–­æ˜¯å¦ç›¸ç­‰ã€‚åŒ=
+	!= 	åˆ¤æ–­æ˜¯å¦ä¸ç­‰
+	\> 	åˆ¤æ–­å­—ç¬¦ä¸€æ˜¯å¦å¤§äºŽå­—ç¬¦äºŒï¼Œ\æ˜¯è½¬ä¹‰
+	\< 	åˆ¤æ–­å­—ç¬¦ä¸€æ˜¯å¦å°äºŽå­—ç¬¦äºŒ
+	=~	åˆ¤æ–­å­—ç¬¦æ˜¯å¦åŒ¹é…å³ä¾§æ­£åˆ™
+æ–‡ä»¶æµ‹è¯•ï¼š
+	test	test å¯ä»¥å¯¹æ–‡ä»¶æˆ–å­—ç¬¦ä¸²è¿›è¡Œæ£€æµ‹ï¼Œåˆ¤æ–­æŸæ¡ä»¶æ˜¯å¦æˆç«‹
+	[  ]	testå¯ç”¨[  ]ä»£æ›¿ï¼Œif test -w /etc ç­‰äºŽ if[ -w /etc ]ï¼Œ[  ]å†…éƒ¨ä¸¤è¾¹å¿…é¡»å³ç©ºæ ¼
+	[[  ]]	[[ ]]æ”¯æŒ&&ã€||è¿™ç§ç¬¦å·ï¼Œå¯è¯»æ€§æ›´å¥½,å»ºè®®ä½¿ç”¨ã€‚[]ä¸­åªèƒ½ä½¿ç”¨-a -o ï¼
+			å¸¸ç”¨é€‰é¡¹å¦‚ä¸‹ï¼Œè¿˜æœ‰å…¶ä»–é€‰é¡¹
+				-e åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ã€‚å¸¸åˆ¤æ–­æ‰§è¡Œè„šæœ¬æ—¶å‚æ•°æ‰€å†™æ–‡ä»¶æ˜¯å¦å­˜åœ¨å¦‚$1
+				-f åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸”ä¸ºæ™®é€šæ–‡ä»¶
+				-d åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸”ä¸ºç›®å½•æ–‡ä»¶
+				-r åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸”æœ‰è¯»æƒé™
+				-w åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸”æœ‰å†™æƒé™
+				-x åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œä¸”æœ‰æ‰§è¡Œæƒé™
+				-n åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©º
 				
-ÅÐ¶ÏÓï¾ä case
-caseÓï¾äµÄÑ¡ÏîÖ§³Ö¸ù¾ÝÕýÔòÆ¥Åä£¬Èç£º*´ú±íÈÎÒâ×Ö·û¡¢[ ]µ¥×Ö·ûÆ¥Åä¡¢|»òÕß......	
+åˆ¤æ–­è¯­å¥ case
+caseè¯­å¥çš„é€‰é¡¹æ”¯æŒæ ¹æ®æ­£åˆ™åŒ¹é…ï¼Œå¦‚ï¼š*ä»£è¡¨ä»»æ„å­—ç¬¦ã€[ ]å•å­—ç¬¦åŒ¹é…ã€|æˆ–è€…......	
 
 a
-# ifÓï¾äÑÝÊ¾£º
-if [ -z "$str1" -o -z "$str2" ];then			# Ê¹ÓÃ""½«±äÁ¿°ü¹ü¿É±ÜÃâÆæÝâÎÊÌâ£º±äÁ¿Îª¿ÕµÃ»°ÎÞÒýºÅ»á±ä³É[ -z -o -z]ÊÇ»á±¨´íµÄ
-    echo "×Ö·û´®²»ÄÜÎª¿Õ"			
+# ifè¯­å¥æ¼”ç¤ºï¼š
+if [ -z "$str1" -o -z "$str2" ];then			# ä½¿ç”¨""å°†å˜é‡åŒ…è£¹å¯é¿å…å¥‡è‘©é—®é¢˜ï¼šå˜é‡ä¸ºç©ºå¾—è¯æ— å¼•å·ä¼šå˜æˆ[ -z -o -z]æ˜¯ä¼šæŠ¥é”™çš„
+    echo "å­—ç¬¦ä¸²ä¸èƒ½ä¸ºç©º"			
     exit 0
 fi
 
-if [[ -z $str1  ||  -z str2 ]];then				# Ð§¹ûÍ¬ÉÏ¡£   
-    echo "×Ö·û´®²»ÄÜÎª¿Õ¡±"	
+if [[ -z $str1  ||  -z str2 ]];then				# æ•ˆæžœåŒä¸Šã€‚   
+    echo "å­—ç¬¦ä¸²ä¸èƒ½ä¸ºç©ºâ€"	
     exit 0
 fi
 
-if [[ $tel =~ ^1[0-9]{10}$ ]];then				# ¾ÙÀý£º¼ì²âtel±äÁ¿ÊÇ·ñ·ûºÏÕýÔòÆ¥ÅäµÄÊÖ»úºÅ¸ñÊ½
-	echo "ÊÇÊÖ»úºÅ"
+if [[ $tel =~ ^1[0-9]{10}$ ]];then				# ä¸¾ä¾‹ï¼šæ£€æµ‹telå˜é‡æ˜¯å¦ç¬¦åˆæ­£åˆ™åŒ¹é…çš„æ‰‹æœºå·æ ¼å¼
+	echo "æ˜¯æ‰‹æœºå·"
 fi
 
-if [[ $# -gt 1 &&  $# -le 3 ]];then 			# ¾ÙÀý£º¼ì²â½Å±¾²ÎÊý
-    echo "²ÎÊý¸öÊýÕý³££¬´óÓÚ1¸öÐ¡ÓÚµÈÓÚ3¸ö"
+if [[ $# -gt 1 &&  $# -le 3 ]];then 			# ä¸¾ä¾‹ï¼šæ£€æµ‹è„šæœ¬å‚æ•°
+    echo "å‚æ•°ä¸ªæ•°æ­£å¸¸ï¼Œå¤§äºŽ1ä¸ªå°äºŽç­‰äºŽ3ä¸ª"
 elseif [ $# -le 1 ];then
-    echo "²ÎÊý¸öÊýÐ¡ÓÚµÈÓÚ1¸ö"
+    echo "å‚æ•°ä¸ªæ•°å°äºŽç­‰äºŽ1ä¸ª"
 else
-    echo "²ÎÊý¸öÊý´óÓÚ3¸ö£¬ÓÐ$#¸ö"
+    echo "å‚æ•°ä¸ªæ•°å¤§äºŽ3ä¸ªï¼Œæœ‰$#ä¸ª"
 fi
 
-# ×Ü½á£ºÌõ¼þÊÇÒª´¦ÀíÊý×ÖÓÃ(( )) £¬´¦ÀíÎÄ¼þÓë×Ö·û´®ÓÃ[[  ]]
+# æ€»ç»“ï¼šæ¡ä»¶æ˜¯è¦å¤„ç†æ•°å­—ç”¨(( )) ï¼Œå¤„ç†æ–‡ä»¶ä¸Žå­—ç¬¦ä¸²ç”¨[[  ]]
 
 
-# caseÓï¾äÑÝÊ¾£º
+# caseè¯­å¥æ¼”ç¤ºï¼š
 case $1 in				
 [0-9])				
-    echo "$1ÊÇÊý×Ö"
-    echo "·ÖÖ§Óöµ½;;¾Í½áÊøÀ²";;			# ;;Ïàµ±ÓÚwhileÓï¾äµÄbreak
+    echo "$1æ˜¯æ•°å­—"
+    echo "åˆ†æ”¯é‡åˆ°;;å°±ç»“æŸå•¦";;			# ;;ç›¸å½“äºŽwhileè¯­å¥çš„break
 [a-z])				
-    echo "ÊÇÐ¡Ð´×ÖÄ¸";;		
-*£©					# Çé¿ö¶¼Ã»Æ¥ÅäÉÏ¾Í»áÖ´ÐÐ*)£¬*)Ïàµ±ÓÚifÓï¾äµÄelse
-    echo "ÆäËû×Ö·û"				# ×îºó*)·ÖÖ§¿ÉÒÔ²»ÓÃ;;½áÎ²£¬ÒòÎª±¾ÉíÖ´ÐÐµ½esacÒ²½áÊøÁË
+    echo "æ˜¯å°å†™å­—æ¯";;		
+*ï¼‰					# æƒ…å†µéƒ½æ²¡åŒ¹é…ä¸Šå°±ä¼šæ‰§è¡Œ*)ï¼Œ*)ç›¸å½“äºŽifè¯­å¥çš„else
+    echo "å…¶ä»–å­—ç¬¦"				# æœ€åŽ*)åˆ†æ”¯å¯ä»¥ä¸ç”¨;;ç»“å°¾ï¼Œå› ä¸ºæœ¬èº«æ‰§è¡Œåˆ°esacä¹Ÿç»“æŸäº†
 esac
 
 
 <<a
-Ñ­»·½á¹¹(while ; until£»for£»for in ; select in)
+å¾ªçŽ¯ç»“æž„(while ; untilï¼›forï¼›for in ; select in)
 a
-# whileÑ­»·
+# whileå¾ªçŽ¯
 i=1;sum=0			
-while(( i<=100 ));do				# whileÔÚÌõ¼þ³ÉÁ¢Ê±»áÑ­»·¡£¼ÆËã0-100ÀÛ¼Ó
+while(( i<=100 ));do				# whileåœ¨æ¡ä»¶æˆç«‹æ—¶ä¼šå¾ªçŽ¯ã€‚è®¡ç®—0-100ç´¯åŠ 
     (( sum+=i ))
     (( i++ ))
 done
 echo "sum:$sum"
 
-# untilÑ­»·
-i=1;sum=0				# untilÔÚÌõ¼þ²»³ÉÁ¢Ê±²Å»áÑ­»·¡£ÓëwhileÏà·´
+# untilå¾ªçŽ¯
+i=1;sum=0				# untilåœ¨æ¡ä»¶ä¸æˆç«‹æ—¶æ‰ä¼šå¾ªçŽ¯ã€‚ä¸Žwhileç›¸å
 until (( i>100 ));do
     (( sum+=i ))
     (( i++ ))
-    if sum >200 ;break 1			# break nÓÃÀ´Ìø³öÑ­»·,nÎªÑ­»·²ãÊý£¬²»Ð´ÎªËùÓÐÑ­»·
-done					# continue n ÓÃÀ´Ìø¹ý¼¸´ÎÑ­»·£¬Ä¬ÈÏÒ»´Î
+    if sum >200 ;break 1			# break nç”¨æ¥è·³å‡ºå¾ªçŽ¯,nä¸ºå¾ªçŽ¯å±‚æ•°ï¼Œä¸å†™ä¸ºæ‰€æœ‰å¾ªçŽ¯
+done					# continue n ç”¨æ¥è·³è¿‡å‡ æ¬¡å¾ªçŽ¯ï¼Œé»˜è®¤ä¸€æ¬¡
 echo "sum:$sum"
 
 
-# forÑ­»·
+# forå¾ªçŽ¯
 sum=0
-for ((i=1; i<=100; i++));do			# forÑ­»·¼ÆËã0-100ÀÛ¼Ó¡£Èý¸öÌõ¼þÓëjavaÀàËÆ
+for ((i=1; i<=100; i++));do			# forå¾ªçŽ¯è®¡ç®—0-100ç´¯åŠ ã€‚ä¸‰ä¸ªæ¡ä»¶ä¸Žjavaç±»ä¼¼
     (( sum+=i ))
 done
 echo "sum:$sum"
 
-# for  in Óï¾ä
+# for  in è¯­å¥
 nums=(10 20 30)
-for num in $nums[*];do			# forÑ­»· ±éÀúÊý×éÔªËØ
+for num in $nums[*];do			# forå¾ªçŽ¯ éåŽ†æ•°ç»„å…ƒç´ 
     if num==20;then
 break
     elseif num==30;then
@@ -209,67 +209,67 @@ continue
     echo `expr num*2`
 done
 
-# select in Óï¾ä			 	select inÓï¾äÀàËÆÓÚfor in£¬µ«ÏÔÊ¾´ø±àºÅµÄ²Ëµ¥£¬ÓÃ»§ÊäÈë±àºÅ¿ÉÒÔÑ¡Ôñ£¬Íê³É½»»¥.Í¨³£ºÍcase in Ò»ÆðÊ¹ÓÃ
-echo ¡°what is you favourite OS?¡±
+# select in è¯­å¥			 	select inè¯­å¥ç±»ä¼¼äºŽfor inï¼Œä½†æ˜¾ç¤ºå¸¦ç¼–å·çš„èœå•ï¼Œç”¨æˆ·è¾“å…¥ç¼–å·å¯ä»¥é€‰æ‹©ï¼Œå®Œæˆäº¤äº’.é€šå¸¸å’Œcase in ä¸€èµ·ä½¿ç”¨
+echo â€œwhat is you favourite OS?â€
 select name in "linux" "windows" "mac";do
     case $name in 
     "linux")
-        echo ¡°linuxÊÇÒ»¸ö¿ªÔ´ÏµÍ³¡±		# ÓÃ»§Ñ¡ÔñºóÖ´ÐÐµÄÓï¾ä
+        echo â€œlinuxæ˜¯ä¸€ä¸ªå¼€æºç³»ç»Ÿâ€		# ç”¨æˆ·é€‰æ‹©åŽæ‰§è¡Œçš„è¯­å¥
         brek;;
     "windows")
-        echo ¡°windowsÊÇÒ»¸ö±ÕÔ´ÊÕ·ÑÏµÍ³¡±
+        echo â€œwindowsæ˜¯ä¸€ä¸ªé—­æºæ”¶è´¹ç³»ç»Ÿâ€
         break;;
     "mac")
-        echo ¡°macÊÇÆ»¹û¹«Ë¾µÄ¡±
-        break;;				# ÊÇÎÞÏÞËÀÑ­»·£¬ctrl+d»òÕßÓöµ½break²Å»áÍË³ö
+        echo â€œmacæ˜¯è‹¹æžœå…¬å¸çš„â€
+        break;;				# æ˜¯æ— é™æ­»å¾ªçŽ¯ï¼Œctrl+dæˆ–è€…é‡åˆ°breakæ‰ä¼šé€€å‡º
     *)
-        echo ¡°ÊäÈë´íÎó¡±
+        echo â€œè¾“å…¥é”™è¯¯â€
 done
 
 
 <<a
-º¯Êý¶¨ÒåºÍµ÷ÓÃ¡¢´úÂë¿é
+å‡½æ•°å®šä¹‰å’Œè°ƒç”¨ã€ä»£ç å—
 a
-# º¯ÊýµÄ¶¨ÒåºÍµ÷ÓÃ
+# å‡½æ•°çš„å®šä¹‰å’Œè°ƒç”¨
 function func(){
-	echo ¡°language: $1¡±
-	echo ¡°URL: $2¡±
-	retrun `expr 1+1` 				# retrunÎªº¯Êý·µ»ØÖµ¡£exprÊýÑ§ÔËËã
+	echo â€œlanguage: $1â€
+	echo â€œURL: $2â€
+	retrun `expr 1+1` 				# retrunä¸ºå‡½æ•°è¿”å›žå€¼ã€‚expræ•°å­¦è¿ç®—
 }
-func C++ http://www.baidu.com			# µ÷ÓÃº¯Êý£¬´«Á½¸öÎ»ÖÃ²ÎÊý¡£
-echo $?						# »ñÈ¡º¯Êý·µ»ØÖµ¡£
+func C++ http://www.baidu.com			# è°ƒç”¨å‡½æ•°ï¼Œä¼ ä¸¤ä¸ªä½ç½®å‚æ•°ã€‚
+echo $?						# èŽ·å–å‡½æ•°è¿”å›žå€¼ã€‚
 
 
 
-# ´úÂë¿é£¬¿ªÊ¼·ûºÍ½áÊø·ûÖ®¼äµÄÄÚÈÝÊÇÒ»¸öÕûÌå£¬¿ÉÒÔÖ±½Ó´òÓ¡¡¢´æÈë±äÁ¿¡¢
-cat <<EOF							# ¾ÙÀý£ºÏÔÊ¾Ò»¸ö²Ëµ¥¸øÓÃ»§£¬ÈÃÓÃ»§ÊäÈë×ÖÄ¸Ñ¡Ôñ¹¦ÄÜ¡£
-d|D) show disk usages.	<<EOF´úÂë¿é£¬EOFÎª½áÊø·û£¬µ±ÊäÈëÄÚÈÝÎªEOFÊ±½áÊø
+# ä»£ç å—ï¼Œå¼€å§‹ç¬¦å’Œç»“æŸç¬¦ä¹‹é—´çš„å†…å®¹æ˜¯ä¸€ä¸ªæ•´ä½“ï¼Œå¯ä»¥ç›´æŽ¥æ‰“å°ã€å­˜å…¥å˜é‡ã€
+cat <<EOF							# ä¸¾ä¾‹ï¼šæ˜¾ç¤ºä¸€ä¸ªèœå•ç»™ç”¨æˆ·ï¼Œè®©ç”¨æˆ·è¾“å…¥å­—æ¯é€‰æ‹©åŠŸèƒ½ã€‚
+d|D) show disk usages.	<<EOFä»£ç å—ï¼ŒEOFä¸ºç»“æŸç¬¦ï¼Œå½“è¾“å…¥å†…å®¹ä¸ºEOFæ—¶ç»“æŸ
 m|M) show memory usages.
 s|S) show swap usages.
 *) quit.
 EOF
 read -p "Your choice:" CHOICE
 
-mysql -uroot -p12345 <<EOF						# ¾ÙÀý£º×Ô¶¯µÇÂ¼mysql²éÑ¯±í²¢ÍË³ö
+mysql -uroot -p12345 <<EOF						# ä¸¾ä¾‹ï¼šè‡ªåŠ¨ç™»å½•mysqlæŸ¥è¯¢è¡¨å¹¶é€€å‡º
 use test;
 select * from students where id<10;
 exit;
 EOF
 
-tee /etc/a.txt <<'EOF'						# ¾ÙÀý:½«´úÂë¿éÄÚÈÝÐ´Èëµ½a.txtÎÄ¼þÖÐ¡£teeÃüÁîÊÇ´Ó±ê×¼ÊäÈë¶ÁÈ¡ÄÚÈÝÐ´ÈëÎÄ¼þ»ò±ê×¼Êä³ö							
- ÕâÐ©ÊÇ±»Ð´ÈëÎÄ¼þµÄÄÚÈÝ
+tee /etc/a.txt <<'EOF'						# ä¸¾ä¾‹:å°†ä»£ç å—å†…å®¹å†™å…¥åˆ°a.txtæ–‡ä»¶ä¸­ã€‚teeå‘½ä»¤æ˜¯ä»Žæ ‡å‡†è¾“å…¥è¯»å–å†…å®¹å†™å…¥æ–‡ä»¶æˆ–æ ‡å‡†è¾“å‡º							
+ è¿™äº›æ˜¯è¢«å†™å…¥æ–‡ä»¶çš„å†…å®¹
  
 EOF
 
-$a <<EOF								# ¾ÙÀý£º½«´úÂë¿éËùÓÐ×Ö·û¶¼´æÈë±äÁ¿aÖÐ
-		´úÂë¿éÖØ¶¨Ïò£¬EOF·Ö½ç·û¿ÉËæÒâÖ¸¶¨¡£
-		³£ÓëcatÃüÁîÒ»ÆðÊ¹ÓÃ£¬ÏÔÊ¾Ò»´ó¿éÎÄ±¾ÄÚÈÝ
+$a <<EOF								# ä¸¾ä¾‹ï¼šå°†ä»£ç å—æ‰€æœ‰å­—ç¬¦éƒ½å­˜å…¥å˜é‡aä¸­
+		ä»£ç å—é‡å®šå‘ï¼ŒEOFåˆ†ç•Œç¬¦å¯éšæ„æŒ‡å®šã€‚
+		å¸¸ä¸Žcatå‘½ä»¤ä¸€èµ·ä½¿ç”¨ï¼Œæ˜¾ç¤ºä¸€å¤§å—æ–‡æœ¬å†…å®¹
 EOF
 echo $a
 
 
 
 
-exit 0				# exit´ú±íÍË³öµ±Ç°½Å±¾¡£0Îª×´Ì¬Âë
+exit 0				# exitä»£è¡¨é€€å‡ºå½“å‰è„šæœ¬ã€‚0ä¸ºçŠ¶æ€ç 
 
-bash -n a.sh			# ¼ì²âa.sh½Å±¾ÕýÈ·ÐÔ
+bash -n a.sh			# æ£€æµ‹a.shè„šæœ¬æ­£ç¡®æ€§
