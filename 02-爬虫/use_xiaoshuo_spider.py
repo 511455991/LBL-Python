@@ -1,5 +1,5 @@
 """
-爬取小说网站，使用lxml清洗数据，并将小说数据存入mysql数据库
+爬取小说网站，使用lxml清洗数据，并将小说数据存入mysql数据库  ,可指定关键词查找指定关键字存在章节，提取指定内容段落
 author：LBL
 date:2023-2-15
 
@@ -75,3 +75,17 @@ if __name__ == "__main__":
     time.sleep(0.01)
     # 保存每个章节内容
     spider.save_data(url_list)
+
+    def search():
+        """ 获取数据库中含指定内容章节,然后输出章节内含指定内容片段 """
+        sql = "select name,text from xiaoshuo where text like '%{}%';".format("王佛宝")
+        print(sql)
+        result = DBUtil.exec_sql(sql)
+        for info in result:
+            name = str(info[0])
+            print(name)
+            re_bds = "。(.*?换血.*?。)"
+            data_list = re.findall(re_bds, info[1])
+            for data in data_list:
+                print(data)
+    # search()
