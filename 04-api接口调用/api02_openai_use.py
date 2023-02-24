@@ -10,7 +10,7 @@ import openai
 
 class chatgpt(object):
     def __init__(self):
-        OPENAI_API_KEY = "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"
+        OPENAI_API_KEY = "sk-Q90kG9AoqzRyYf9j5YRRT3BlbkFJuNNICmZHHse1xhXJ9Mz81"
         openai.api_key = os.getenv("OPENAI_API_KEY",OPENAI_API_KEY)
 
 
