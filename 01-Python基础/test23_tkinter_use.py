@@ -1,7 +1,7 @@
 # encoding=utf-8
 
 """
-TKinter做带界面的程序，并使用pyinstaller打包为exe
+TKinter做带界面的爬取网易云音乐程序，并使用pyinstaller打包为exe
 author：LBL
 date:2023-2-12
 """
@@ -90,7 +90,8 @@ if __name__ == "__main__":
 
 # 程序打包成exe:
 # 1、安装第三方模块 pip install pyinstaller
-# 2、执行cmd命令：pyinstaller -F -i test23_tkinter_use.py -w
+# 2、执行cmd命令：pyinstaller -F  test23_tkinter_use.py -w
+# -F打包成一个可执行文件，-w不显示控制台窗口，-i指定ico图标
 # 打包的exe运行可能出现闪退情况，解决方法，在主函数程序最后以行加额外代码让程序处于等待状态： input("please input any key to exit")
 # 调试闪退问题：由于闪退看不到报错，可以cmd运行打包的程序如test.exe就可以看到报错了。
 # 本地python环境问题也会导致打包出的程序有问题，可能换台电脑打包的就能执行，检查环境
