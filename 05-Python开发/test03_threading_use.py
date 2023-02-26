@@ -1,7 +1,7 @@
 # encoding=utf-8
 
 """
-多任务编程之多进程：threading子线程模块使用
+多任务编程之多线程：threading子线程模块使用
 author：LBL
 date:2023-2-26
 """
