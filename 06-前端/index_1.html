@@ -1,0 +1,52 @@
+<!DOCTYPE html>     <!--声明文档类型-->
+<html lang="en">    <!--html根标签，声明语言类型-->
+
+<head>
+    <!-- 定义字符集 -->
+    <meta charset="UTF-8">
+    <!-- 设置网页名称 -->
+    <title>Title</title>
+</head>
+
+<body>
+<!--排版标签：标题、段落、换行、水平线-->
+    <!--标题标签：h1到h6标题-->
+    <h1>一级标题</h1>
+    <h2>二级标题</h2>
+    <!--段落标签：p-->
+    <p>W3School 是因特网上最大的 WEB 开发者资源 W3School 是完全免费的 W3School 是非盈利性的</p>
+    <p>W3School 一直在升级和更新 W3School 是 W3C 中国社区成员,致力于推广 W3C 标准</p>
+    <!--换行标签：br，换行标签属于单标签也被称为自闭合标签，后面/可写可不写，即br 或者是br/ -->
+    <br>
+    <!--水平线标签：hr-->
+    <hr>
+
+<!--文本格式化标签，让文字加粗、倾斜、下划线、删除线等效果。有两种标签形式，推荐使用第二种，符合标签语义化原则，语义更强烈-->
+    <!--文本加粗：b或者strong-->
+    <b>加粗</b>     <strong>加粗2</strong>
+    <!--文本斜体：i或者em-->
+    <i>斜体</i>     <em>斜体2</em>
+    <!--文本加下划线：u或者ins-->
+    <u>下划线</u>    <ins>下划线2</ins>
+    <!--文本加删除线：s或者del-->
+    <s>删除线</s>    <del>删除线2</del>  <br>
+    <!--center 文本居中-->
+    <center>文字居中</center>
+
+<!--媒体标签，图片、音频、视频、链接-->
+    <!--图片标签：img。
+    属性src：图片相对路径或绝对路径，可是网络路径。
+    alt：设置图片加载不出时显示的文本。title：鼠标悬停显示的文字。
+    width、height设置尺寸，单位像素px或者窗口百分比，设置一个会等比例缩放，设置两个可能会变形-->
+    <img src="a.jpg" alt="加载失败" width="389" height="500"><br>
+    <img src="D://a.jpg" width="10%">
+    <!--音频标签audio。 src:路径 。controls:显示播放控件。autoplay:自动播放(浏览器不一定支持)。loop:循环播放。只支持mp3\wav\ogg格式-->
+    <audio src="b.mp3" controls></audio>
+    <!--视频标签video  src路径 controls显示播放控件。autoplay自动播放。muted默认静音。只支持mp4\webM\ogg格式-->
+    <video src="c.mp4" controls height="10%" width="10%"></video>
+    <hr/>
+    <!--超链接标签a  href目标地址，#代表跳转到当前页面顶端。target:指定打开方式，_self当前页面 _blank新页面-->
+    <a href="http://www.baidu.com" target="_blank">这是一个超链接，点击跳转百度</a>
+
+</body>
+</html>
