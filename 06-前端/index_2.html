@@ -1,0 +1,142 @@
+<!DOCTYPE html>     <!--声明文档类型-->
+
+<!--列表、表格、表单标签的使用-->
+<!--author：LBL-->
+<!--date:2023-2-27-->
+
+<html lang="en">    <!--html根标签，声明语言类型-->
+
+<head>
+    <!-- 定义字符集 -->
+    <meta charset="UTF-8">
+    <!-- 设置网页名称 -->
+    <title>列表、演示</title>
+</head>
+
+<body>
+    <h1>列表</h1>
+    <p>列表分为有序列表ol(ordered list) ，无序列表ul(unordered list)，还有自定义列表dl。列表中每一个列表项为li。列表标签下建议只直接放li标签，其他标签可再放在li下</p>
+    <h2>有序列表ol：水果</h2>
+    <ol>
+        <li>苹果</li>
+        <li>芒果</li>
+        <li>火龙果</li>
+    </ol>
+    <h2>无序列表ul：饮料</h2>
+    <ul>
+        <li>
+            <p>牛奶</p>
+        </li>
+        <li>咖啡</li>
+        <li>茶</li>
+    </ul>
+    <h2>自定义列表dl，常用于网页底部导航：导航。dl代表整个自定义列表，dt是主题，dd是列表项</h2>
+    <dl>
+        <dt>帮助中心</dt>
+        <dd>账户管理</dd>
+        <dd>购物指南</dd>
+        <dd>订单操作</dd>
+    </dl>
+    <br><hr>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+    <h1>表格,table > tr > th/td</h1>
+    <p>table表示整体表格，tr定义每行，th和td是每行的单元格，th是表头单元格，td是普通单元格。caption是表格标题，与tr同级别 </p>
+    <p>表格属性建议使用css设置，但在不了解css时可使用表格属性width：表格的宽度。border：表格边框的宽度。cellspacing：边框距离，设0可以消除重复边框</p>
+    <p>表格可以直接table--tr--td，也可以写的更好看一些放在结构标签中：分为表格头thead，表格体tbody，表格脚tfoot，在各个部分下方加tr--td</p>
+    <p>单元格合并:通过设置单元格属性
+        rowspan单元格横跨的行数。被合并的单元格属于最上面一行，下面的几行要各自删掉一个单元格
+        cowspan单元格横跨的列数。被合并单元格的那行需要删掉对应个数单元格</p>
+    <table  width="50%" border="1" cellspacing="0">
+        <caption><h3>产品表</h3></caption>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>品牌图标</th>
+                <th>品牌名称</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td><img src="./img/三只松鼠.png" width="60" height="50"></td>
+                <td>三只松鼠</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td rowspan="2"><img src="img/优衣库.png" width="60" height="50"></td>
+                <td>优衣库</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>小米</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>总结</td>
+                <td colspan="2">图标好看,名称优雅</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br><hr>
+<!-------------------------------------------------------------------------------------------------------------------->
+    <h1>表单form  </h1>
+    <p>表单标签form。用于手机用户信息，如登录页、注册页
+        表单属性action 指定表单数据提交到的url,#代表当前页面。
+        method 指定表单提交方式 ：get默认值，参数会被拼接在url后；post参数会在请求体中提交。
+    </p>
+    <p>*表单项结果要想被提交，必须要指定name属性
+        常见表单项有：input输入系列、button按钮、select下拉菜单、textarea文本域、label标签
+        input标签通过type类型区分不同种类，有文本、密码、单选、多选
+        可通过属性 for=id 将标签文字与输入框绑定起来，点击范围变大，使用更友好
+
+    </p>
+    <form action="#" method="post">
+        <!-- placeholder提示信息，name控件名称，value用户输入的值 -->
+        <label for="username">昵称：</label>
+        <input type="text" name="username" id="username" placeholder="请输入昵称">           <br>
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password">       <br>
+        性别：
+        <!--radio单选项的name需要一样，靠value区分,checked是默认选上 -->
+        <input type="radio" name="gender" value="0" id="male" checked>
+        <label for="male">男</label>
+        <input type="radio" name="gender" value="1" id="female">
+        <label for="female">女</label>                             <br>
+        爱好：
+        <!--checkbox多选项的name一样，value不一样 -->
+        <input type="checkbox" name="hobby" id="h1" value="1" checked>
+        <label for="h1">旅游</label>
+        <input type="checkbox" name="hobby" id="h2" value="2">
+        <label for="h2">读书</label>
+        <input type="checkbox" name="hobby" id="h3" value="3">
+        <label for="h3">电影</label>                                <br>
+        头像：
+        <!--file上传文件，添加multiple属性可以上传多个文件-->
+        <input type="file" >                                        <br>
+
+        城市：
+        <!--select下定义拉列表，selected默认选中-->
+        <select name="city"  id="select_city">
+            <option value="bj" selected>北京</option>
+            <option value="sh">上海</option>
+            <option value="gz">广州</option>
+        </select>                                                   <br>
+         描述：
+        <!--textarea文本框，row指定行数 cols列数，文本框大小更推荐使用css设置-->
+        <textarea cols="20" rows="5" name="desc"></textarea>        <br>
+
+        <!--按钮-->
+        <input type="hidden" value="隐藏不显示">
+        <input type="submit" value="注册">
+        <input type="reset" value="重置">
+        <input type="button" value="一个普通按钮，可执行js命令">
+
+
+        <br>
+    </form>
+
+</body>
+</html>
