@@ -1,6 +1,6 @@
 <!DOCTYPE html>     <!--声明文档类型-->
 
-<!--列表、表格、表单标签的使用-->
+<!--列表、表格、表单、网页 布局标签的使用-->
 <!--author：LBL-->
 <!--date:2023-2-27-->
 
@@ -90,15 +90,17 @@
     <p>*表单项结果要想被提交，必须要指定name属性
         常见表单项有：input输入系列、button按钮、select下拉菜单、textarea文本域、label标签
         input标签通过type类型区分不同种类，有文本、密码、单选、多选
-        可通过属性 for=id 将标签文字与输入框绑定起来，点击范围变大，使用更友好
+        可通过属性 for=id 将标签文字与输入框绑定起来，点击范围变大，使用更友好。或者直接用label标签包裹input标签，这样就不用写for属性
 
     </p>
     <form action="#" method="post">
         <!-- placeholder提示信息，name控件名称，value用户输入的值 -->
         <label for="username">昵称：</label>
         <input type="text" name="username" id="username" placeholder="请输入昵称">           <br>
-        <label for="password">密码：</label>
-        <input type="password" name="password" id="password">       <br>
+        <label>密码：
+            <input type="password" name="password" id="password">
+        </label>        <br>
+
         性别：
         <!--radio单选项的name需要一样，靠value区分,checked是默认选上 -->
         <input type="radio" name="gender" value="0" id="male" checked>
@@ -134,9 +136,25 @@
         <input type="reset" value="重置">
         <input type="button" value="一个普通按钮，可执行js命令">
 
+    </form><br>
 
-        <br>
-    </form>
+    <br><hr>
+<!-------------------------------------------------------------------------------------------------------------------->
+    <!--网页布局标签，没有什么效果，就是用来区分，从前前端经常使用无语意标签，html5后通常使用有语义标签-->
+    <div>div标签没有语义，独占一行</div>
+    <div>div标签没有语义，独占一行</div>
+    <span>span标签没有语义，一行可显示多个</span>
+    <span>span标签没有语义，一行可显示多个</span>
+
+    <header>网页的头部</header>
+    <nav>网页的导航</nav>
+    <aside>网页的侧边栏</aside>
+    <section>网页的区块</section>
+    <article>网页的文章块</article>
+    <footer>网页的底部</footer>
+
+
+
 
 </body>
 </html>
