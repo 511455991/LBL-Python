@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+背景图片的设置、元素类型的转换（块、行内、行内块）
+author：LBL
+date:2023-2-28
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>背景图片的设置、元素类型的转换（块、行内、行内块）</title>
+
+    <style>
+        .box{
+            /* 背景图片是div中的css样式，放图片img标签更好用*/
+            width: 400px;
+            height: 400px;
+            /* 背景颜色 */
+            background-color: orange;
+            /* 背景图片 */
+            background-image: url("https://www.baidu.com/img/flexible/logo/pc/result@2.png");
+            /* 背景平铺方式。repeat平铺，no-repeat不平铺，repeat-x沿x轴平铺,repeat-y沿y轴平铺 */
+            background-repeat: repeat;
+            /* 背景位置：水平位置 垂直位置。 ( left center right) (top center bottom) ,或者写坐标如(0,0) */
+            background-position: right top;
+
+            /* 背景属性连写方式：顺序 skyblue url("") no-repeat */
+            /*background: skyblue url("") no-repeat center center;*/
+        }
+    </style>
+
+
+    <!-- 元素显示模式分为块级元素block、行内元素inline、行内块元素inline-block ，通过display属性区分。有时候需要转换元素的显示模式
+      块级元素：独占一行，可设置宽高。      代表元素：div、
+      行内元素：一行可放多个，不可设置宽高。 代表元素：a
+      行内块元素：一行可放多个，可设置宽高。 代表元素：
+    -->
+    <style>
+        /* 将a标签转换为块级元素*/
+        a{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            display: block;
+                }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <a href="#">我是一个a标签</a>
+    <a href="#">我是一个a标签</a>
+</body>
+</html>
