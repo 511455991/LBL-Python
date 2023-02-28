@@ -1,0 +1,69 @@
+<!DOCTYPE html>     <!--声明文档类型-->
+
+<!--
+字体和文本样式的设置
+author：LBL
+date:2023-2-28
+-->
+
+<html lang="en">    <!--html根标签，声明语言类型-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS层叠样式表的使用</title>
+
+    <style>
+        /* 字体样式设置*/
+        p{
+            /* 文字颜色 */
+            color: red;
+            /* 文字大小     单位像素px */
+            font-size: 30px;
+            /* 设置文字行高，1表示无上下间隔 */
+            line-height: 1;
+            /* 文字粗细      默认是normal正常，bold加粗 */
+            font-weight: bold;
+            /* 文字倾斜      默认是normal正常，italic倾斜 */
+            font-style: italic;
+            /* 文字字体      会按顺序使用，如果电脑没装会使用下一个字体,前面使用具体字体，最后使用某字体系列*/
+            font-family: 微软雅黑,黑体,楷体,宋体,隶书,sans-serif;
+
+            /* 字体样式连写：字体的属性可以像上面一样单独设置，也可以直接在一行设置。连写会覆盖之前单独的属性，建议连写放在最上方
+            属性顺序是规定死的：style weight size/line-height family 。前两个可省略，会使用系统默认值*/
+            font:  italic bold 30px/1 微软雅黑,黑体,楷体,宋体,隶书,sans-serif sans-serif;
+        }
+
+        /* 文本样式设置 */
+        p{
+            /* 首行缩进，一个em是一个字大小 */
+            text-indent: 2em;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            /* 设置文本对齐方式：left左对齐 center居中 right右对齐。文本对其方式设置的应该是文本所在标签 */
+            text-align: center;
+            /* 设置文本装饰线：underline下划线 line-through删除线 none无装饰线，可使用none来清除a标签的默认下划线 */
+            text-decoration: underline;
+        }
+
+        div{
+            /* 设置div等大盒子居中显示 margin: 0 auto; */
+            margin: 0 auto;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>hello world 你好啊</p>
+    <p>他本是地球上的华夏学子，机缘巧合穿越到这方世界，并成为魔道蛊仙，创立血翼魔教，后因炼制春秋蝉奇蛊杀生过重而遭到正派联合围剿，被迫自爆春秋蝉而死，却意外重生回到500年前。前世修为达到六转蛊仙巅峰（渡过二次天劫）。
+        重生后的方源利用前世记忆以及本身的算计，一步步开始了他的新生。现以炼道成尊，摆脱天意和尊者棋子的身份，成为布局天地，执宰五域的棋手。
+        作战时炼道为正，天道为奇。因其肉身为九转至尊仙胎蛊所化，使他拥有了成为复数流派道主的潜力。</p>
+    <div class="box">
+        我是一行文本
+    </div>
+</body>
+</html>
