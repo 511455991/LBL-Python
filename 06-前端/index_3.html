@@ -1,7 +1,7 @@
 <!DOCTYPE html>     <!--声明文档类型-->
 
 <!--
-CSS层叠样式表的使用，来美化html页面
+美化html页面，css语法、css选择器使用
 author：LBL
 date:2023-2-28
 -->
@@ -10,13 +10,13 @@ date:2023-2-28
 
 <head>
     <meta charset="UTF-8">
-    <title>CSS层叠样式表的使用</title>
+    <title>CSS语法</title>
     <!--CSS（Cascading style sheets）：层叠样式表，作用是给html中的标签设置样式，来美化html页面。
         书写位置：css有行内样式、内部样式、外部样式
             行内样式：写在标签内部style属性中，属性值是css属性值键值对。代码耦合不利于后期维护，可配合js使用。
             内部样式：写在style标签中，style标签一般放在head标签中，title标签下（虽然可以放在页面任意位置）。
             外部样式：将css代码放到单独文件中如demo.css，然后导入。属性href：指定外部文件，rel：告诉浏览器这是css文件 <link href="./css/demo.css" rel="stylesheet"/>
-        css格式说明：
+        css语法说明：
             <style>
                 css选择器{
                     属性名:属性值;
@@ -60,10 +60,13 @@ date:2023-2-28
     4、通配符：*代表所有标签，如
      *{color: red}
 
+    css选择器其他说明：
+        body div p      # 空格分割为后代选择器，表示body标签下的所有子孙后代中包含的p标签
+        body>div>p      # >分割为子代选择器，表示直接在body标签下的div标签下的p标签
+        div,p           # ,分割为并集选择器，表示div或者p标签都可以
+        p.name          # 没有分隔符为交集选择器，表示同时满足这两个条件p标签和name类
 
    css选择器除了在前端定位会使用它来定位元素然后美化元素，在后端爬虫或操作浏览器时也能拿来定位元素然后获取元素信息或者操作元素
     -->
-
-
 </body>
 </html>
