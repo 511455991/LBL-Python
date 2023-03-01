@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+html中盒子说明
+author：LBL
+date:2023-3-1
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>背景图片的设置、元素类型的转换（块、行内、行内块）</title>
+    <style>
+        *{
+        /* 通配符选择器，常用来清除网页中默认间隙,固定写法 */
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            /* 盒子的区域分为边框border、内容、内边距padding、外边距margin。 总大小是这些加起来。width和height设置的是内容区域大小， */
+            width: 300px;
+            height: 400px;
+            background: skyblue;
+            /* css3可设置自动内减，加了这个属性该盒子就不会被边距等内容撑大，内容设置多大就是多大。不设置的话很多时候需要手动调整盒子大小*/
+            box-sizing: border-box;
+            /* 设置边框(border全边框 border-top上边框 border-bottom下边框)：粗细(px像素)，样式(solid实线 dashed虚线)，颜色。 */
+            border: 1px solid blue;
+            border-bottom: 1px solid white;
+            /* 设置内边距，10px代表上下左右都10 ；10px 20px 表示上下10*左右20；10px 20px 30px 代表上10左右20下30；10px 20px 30px 40px代表上右下左*/
+            padding: 10px 20px;
+            /* 只设置某方向内边距 */
+            padding-left: 20px;
+            /* 外边距，可用来控制位置。如下为左边距200 */
+            margin-left: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">我是一段文本内容我是一段文本内容我是一段文本内容我是一段文本内容我是一段文本内容</div>
+
+</body>
+</html>
