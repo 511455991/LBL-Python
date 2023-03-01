@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+使用浮动来控制页面布局、清除浮动的方法
+author：LBL
+date:2023-3-1
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类选择器、伪元素</title>
+    <!--浮动演示，浮动可控制页面标签位置，方便布局------------------------------------------------------------------------------------>
+    <style>
+        .left{
+            /* 左浮动 */
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .right{
+            /* 右浮动 */
+            float: right;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        span{
+            /* 行内元素浮动后宽高就有效了 */
+            float: right;
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+    <!-- 清除浮动演示-------------------------------------------------------------------->
+    <style>
+        .father2{width: 100px; height: 100px;background-color: rebeccapurple;}
+        .son{
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: black;
+        }
+
+        /*2、额外标签法*/
+        .clear{
+            clear:both
+        }
+        /*3、单伪元素清除法*/
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+            /*补充属性，让网页中看不到伪元素*/
+            height: 0;
+            visibility: hidden;
+        }
+        /*4、双伪元素清除法*/
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: block;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="left">
+        左边
+    </div>
+    <div class="right">
+        右边
+    </div>
+    <span>行内标签span</span>
+
+<!-- 清除浮动的意思是清除浮动带来的影响：
+    当子元素被浮动时父元素如果没有设置高度会的话，浮动的子元素并不能撑开父元素，这时父元素会遮挡后面同级的元素。
+    解决方法：1、直接给父元素设置高度
+            2、额外标签法：给父元素最后添加一个块级元素，给此元素设置一个css属性clear:both
+            3、单伪元素清除法：使用伪元素模拟额外标签法。一般开发时会给需要的父标签加clearfix类名，统一添加伪元素
+            4、双伪元素清除法：类似单伪元素清除法，加两个，前后都加  ：：before  ::after
+            5、给父元素设置css属性 overflow:hidden。
+            -->
+    <div class="father clearfix">
+        <div class="son"></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="father2"></div>
+
+</body>
+</html>
