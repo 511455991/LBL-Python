@@ -1,7 +1,7 @@
 <!DOCTYPE html>     <!--声明文档类型-->
 
 <!--
-案例02：导航页面
+案例02：新闻导航页面
 author：LBL
 date:2023-2-28
 -->
@@ -10,25 +10,23 @@ date:2023-2-28
 <head>
     <meta charset="UTF-8">
     <title>导航网页</title>
-
+<!-- 导航一   ------------------------------------------------------------------------------------------------------->
     <style>
-        div{
+        .box1{
             /* 盒子内的子元素居中显示 */
             text-align: center;
         }
-        a{
+        .box1 a{
+            /* 转换为行内块元素让宽高生效、设置宽高、文字颜色、背景颜色、去除下划线 */
+            display: inline-block;
             width: 100px;
             height: 50px;
-            background: skyblue;
-            /* 转换为行内块元素，让宽高生效 */
-            display: inline-block;
-            /* 文字颜色 */
             color: white;
-            /* 去除文字下划线 */
+            background: skyblue;
             text-decoration: none;
-            /* 文字水平居中 */
+
+            /* 文字居中显示：子元素水平居中、行高正好等于块高度可垂直居中 */
             text-align: center;
-            /* 文字垂直居中：设置行高正好等于块高度 */
             line-height: 50px;
         }
         /* 鼠标悬停改变背景色*/
@@ -37,14 +35,116 @@ date:2023-2-28
         }
     </style>
 
+<!-- 导航二   ------------------------------------------------------------------------------------------------------->
+    <style>
+        *{
+            /* 通配符选择器，常用来清除网页中默认间隙,固定写法 */
+            margin: 0;
+            padding: 0;
+        }
+
+        .box2{
+            /* 设置盒子高度、子元素居中、上下边界线样式 */
+            height: 40px;
+            text-align: center;
+            border-top: 2px solid orange;
+            border-bottom: 1px solid #edeef0;
+        }
+
+        .box2 a{
+            /* 转换为行内块元素让宽高生效、设置高等于块高让文字垂直居中、大小、颜色、去除下划线 */
+            display: inline-block;
+            /*width: 80px;*/
+            height: 40px;
+            line-height: 40px;
+            font-size: 12px;
+            color: #4c4c4c;
+            text-decoration: none;
+            /* 当文字超出设定的宽度会格式错乱，取消宽度设置，改用内边距 */
+            padding: 0px 20px;
+        }
+
+        a:hover{
+            /* 鼠标悬停改变文字颜色、背景色*/
+            color: #ff8400;
+            background-color: #edeef0;
+        }
+    </style>
+<!-- 文章样式   ------------------------------------------------------------------------------------------------------->
+    <style>
+        .box3{
+            /* 盒子大小、子元素居中显示、边框、内边距、外边距 */
+            width: 300px;
+            height: 400px;
+            text-align: center;
+            border: 1px solid black ;
+            padding: 30px;
+            margin: 20px;
+            /* 设置自动内减，盒子不会被边距等内容撑大*/
+            box-sizing: border-box;
+            /* 转换为行内块元素 */
+            display: inline-block;
+
+        }
+        ul{
+            /* 去除列表前原点 */
+            list-style: none;
+        }
+        .box3 div,li{
+            /* 设置盒子大小、上下边界线样式、盒子居中显示*/
+            height: 40px;
+            border-top: 1px solid #edeef0;
+            border-bottom: 1px solid #edeef0;
+            margin: 0 auto;
+        }
+        .box3 a{
+            /* 转换为行内块元素让宽高生效、设置高让文字垂直居中、颜色、去除下划线 */
+            display: inline-block;
+            line-height: 40px;
+            color: lightslategray;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
+    <div class="box1">
         <a href="#">导航1</a>
         <a href="#">导航2</a>
         <a href="#">导航3</a>
         <a href="#">导航4</a>
+    </div>
+    <br><br><br>
+
+    <div class="box2">
+        <a href="#">收藏网页</a><a href="#">新浪导航</a><a href="#">超出设置的a标签长度的文字内容</a><a href="#">再点一下</a>
+    </div>
+
+    <div class="box3">
+        <h2>最新文章/New Articles</h2>
+        <!-- 无序列表ul方式 -->
+        <ul>
+            <li><a href="#">北京招聘网页设计</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">python入门</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Java程序设计</a></li>
+        </ul>
+    </div>
+    <div class="box3">
+        <h2>最新文章/New Articles</h2>
+        <!-- 无意义布局标签div方式 -->
+        <div>
+            <a href="#">北京招聘网页设计</a>
+        </div>
+        <div>
+            <a href="#">python入门</a>
+        </div>
+        <div>
+            <a href="#">Java程序设计</a>
+        </div>
     </div>
 
 </body>
