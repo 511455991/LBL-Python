@@ -1,0 +1,165 @@
+<!DOCTYPE html>     <!--声明文档类型-->
+
+<!--
+案例03：小米网站模块
+author：LBL
+date:2023-3-1
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米网站模块案例</title>
+    <style>
+        /* 去除网页标签默认的外边距和内边距： margin和padding */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 40px;
+            background-color: #333;
+        }
+        ul{
+            /* 去除列表前原点 */
+            list-style: none;
+        }
+
+        .header a{
+            /* 设置文字大小、颜色、浮动、去除下划线、设置行让文字垂直居中、设置内边距（浮动就不用改成行内块了） */
+            font-size: 12px;
+            color: white;
+            float: left;
+            text-decoration: none;
+            line-height: 40px;
+
+            padding: 0px 20px;
+
+        }
+
+        /* 设置网页导航大小、颜色、居中 */
+        .nav{
+            width: 1226px;
+            height:100px;
+            background-color: #ffc0cb;
+            margin: 0 auto;
+        }
+        .banner{
+            width: 1226px;
+            height:460px;
+            background-color: #87ceeb;
+            margin: 0 auto;
+        }
+        .left{
+            float: left;
+            width: 234px;
+            height:460px;
+            background-color: #ffa500;
+        }
+        .right{
+            float: right;
+            width: 992px;
+            height:460px;
+            background-color: #87ceeb;
+        }
+
+        .left a{
+            display: inline-block;
+            height: 40px;
+            color: lightslategray;
+            text-decoration: none;
+        }
+    </style>
+
+    <style>
+        /* 设置大盒子，设置大小、背景色、外边距：100px是上下，auto是左右自动即居中 */
+        .box{
+            width: 1226px;
+            height: 614px;
+            background-color: lightslategray;
+            margin: 100px auto;
+        }
+        /* 设置左侧盒子 */
+        .left1{
+            width: 234px;
+            height: 614px;
+            background-color: #B000B0;
+            float: left;
+        }
+        /* 设置右侧盒子 */
+        .right1{
+            width: 978px;
+            height: 614px;
+            background-color: white;
+            float: right;
+        }
+        /* 设置八个小盒子大小、颜色、浮动、外边距 */
+        .item{
+            width: 234px;
+            height: 300px;
+            background-color: #87ceeb;
+            float: left;
+            margin-right: 14px;
+            margin-bottom: 14px;
+        }
+        /* 由于每行第四个加上右侧外边距会超出大盒子，导致移动到下一行，所以去掉第四个和第八个小盒子的右侧外边距 */
+        .item:nth-child(4n){
+            margin-right: 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 网页头部 -->
+    <div class="header">
+        <ul>
+            <li><a href="#">小米</a></li>
+            <li><a href="#">黑米</a></li>
+            <li><a href="#">百米</a></li>
+            <li><a href="#">红米</a></li>
+            <li><a href="#">绿米</a></li>
+            <li><a href="#">大米</a></li>
+        </ul>
+
+
+    </div>
+    <!-- 网页导航,nav是导航的缩写 -->
+    <div class="nav">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <!-- 网页的轮播图，banner   -->
+    <div class="banner">
+        <div class="left">
+            <ul><li><a href="#">手机</a></li></ul>
+            <ul><li><a href="#">家电</a></li></ul>
+            <ul><li><a href="#">水果</a></li></ul>
+            <ul><li><a href="#">生活用品</a></li></ul>
+            <ul><li><a href="#">奢侈品</a></li></ul>
+            <ul><li><a href="#">服装</a></li></ul>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+    <!--商品介绍图-->
+    <div class="box">
+        <div class="left1">
+        </div>
+        <div class="right1">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+
+    </div>
+</body>
+</html>
