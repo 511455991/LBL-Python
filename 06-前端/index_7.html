@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+结构伪类选择器、伪元素
+author：LBL
+date:2023-3-1
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类选择器、伪元素</title>
+    <!--结构伪类选择器------------------------------------------------------------------------------------->
+    <style>
+        /* 找到第一个子元素,并且其为li标签 */
+        li:first-child{
+            color: orange;
+        }
+        /* 找到最后一个子元素,并且其为li标签 */
+        li:last-child{
+            color: lightslategray;
+        }
+        /* 找到第3个子元素,并且其为li标签 */
+        li:nth-child(3){
+            color: black;
+        }
+        /* 找到子元素中第三个li标签,与上面有区别，上面第三个子元素不是li就定位不到 */
+        li:nth-of-type(3){
+            color: green;
+        }
+        /* 找到倒数第3个子元素,并且其为li标签 */
+        li:nth-last-child(3){
+            color: yellow;
+        }
+        /* n代表自然数，2n即双数，要求n必须写在前面，如-n+5*/
+        li:nth-child(2n){
+            color: skyblue;
+        }
+    </style>
+    <!--伪元素。    伪元素就是由css模拟出标签的效果   ------------------------------------------------------------------------------------->
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+        /* ::before是在父元素内容前添加一个伪元素*/
+        .father::before{
+            /* content是必加的属性，伪元素默认是行内模式 */
+            content: '我是一个伪元素';
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        /* ::after是在父元素内容后添加一个伪元素*/
+        .father::after{
+            content: '我是一个伪元素';
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </ul>
+
+    <div class="father">
+        父元素
+    </div>
+</body>
+</html>
