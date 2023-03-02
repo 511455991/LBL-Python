@@ -1,0 +1,102 @@
+<!DOCTYPE html>     <!--声明文档类型-->
+
+<!--
+案例04：b站导航案例
+author：LBL
+date:2023-3-2
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>b站导航案例</title>
+    <style>
+        /* 去除网页标签默认的外边距和内边距： margin和padding */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 40px;
+            background-color: #333;
+        }
+        ul{
+            /* 去除列表前原点 */
+            list-style: none;
+        }
+        a {
+             /* 设置超链接文字大小、颜色、去除下划线 */
+            font-size: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        .header>ul>li>a{
+            /* 设置文字浮动、设置行让文字垂直居中、设置内边距（浮动就不用改成行内块了） */
+            float: left;
+            line-height: 40px;
+            padding: 0px 20px;
+
+        }
+        .box a{
+            float: top;
+            line-height: 30px;
+
+        }
+
+
+
+        /* 使用定位来布局弹出菜单，子绝父相 */
+        .mini-header__title{
+            /* 父元素，绝对定位*/
+            position: relative;
+        }
+        .mini-header__title .box{
+            /* 子元素，相对定位，离上方边距正好等于父元素高度，设置边界线，*/
+            position: absolute;
+            top:40px;
+            left: 10px;
+            border: 1px solid #ccc;
+            /* 大小、背景色、隐藏、圆角边框、内边距、透明度*/
+            width: 200px;
+            height:200px;
+            background-color: #ccc;
+            display: none;
+            border-radius: 3%;
+            padding: 6px;
+            opacity: 0.8;
+
+        }
+         .mini-header__title:hover .box{
+             /*鼠标移动到父元素上在显示子元素菜单*/
+             display: block;
+         }
+
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 网页头部 -->
+    <div class="header">
+        <ul>
+            <li class="mini-header__title"><a href="#">首页
+                <div class="box">
+                    <ul>
+                    <li><a href="#">小米</a></li>
+                    <li><a href="#">黑米</a></li>
+                    <li><a href="#">百米</a></li>
+                    <li><a href="#">红米</a></li>
+                    <li><a href="#">绿米</a></li>
+                    <li><a href="#">大米</a></li></ul>
+                </div>
+            </a></li>
+            <li><a href="#">番剧</a></li>
+            <li><a href="#">直播</a></li>
+            <li><a href="#">游戏中心</a></li>
+            <li><a href="#">漫画</a></li>
+            <li><a href="#">赛事</a></li>
+        </ul>
+    </div>
+</body>
+</html>
