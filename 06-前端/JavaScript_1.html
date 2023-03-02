@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+JavaScript的概念、写法、输出方式
+author：LBL
+date:2023-3-2
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript的概念、写法、输出方式</title>
+</head>
+
+<body>
+    <!-----------------------------------------------------------------------------------
+    JavaScript是一门语法类似Java的脚本语言，用于控制网页中的行为。如弹窗、跳转页面等交互
+    引入方式：内部脚本：位置不限制，但一般放在<body>底部。          <script>脚本代码</script>
+            外部脚本：js代码定义在外部文件demo.js中，然后导入。    <script src=’../js/demo.js’></script>
+    ------------------------------------------------------------------------------------>
+      <!--按钮，value是显示的文字，onclick是点击按钮执行的操作-->
+	<input type="button" value="alert警告" onclick="alert('这是警告框')">
+	<input type="button" value="confirm确认" onclick="confirm('这是确认框')">
+	<input type="button" value="prompt对话" onclick="prompt('这是对话')">
+
+
+    <!--内部定义方式书写JS-->
+    <script>
+         /* js中多行注释 */
+         // js中单行注释
+         // js中三种输出方式
+        window.alert("警告弹窗");         //输出到警告框,可简写为alert()。确认框与对话框同样格式
+         alert("内部定义方式  警告弹窗");
+        document.writeln("hello js");   //输出到html页面.
+        console.log("HELLO JS")         //输出到浏览器控制台。（浏览器调试助手--console）
+    </script>
+
+    <!--外部引入方式引入JS-->
+    <script src="../js/demo.js"></script>
+
+</body>
+</html>
