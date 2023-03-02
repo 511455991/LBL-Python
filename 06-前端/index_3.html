@@ -1,7 +1,7 @@
 <!DOCTYPE html>     <!--声明文档类型-->
 
 <!--
-美化html页面，css语法、css选择器使用
+css语法、css选择器
 author：LBL
 date:2023-2-28
 -->
@@ -10,7 +10,7 @@ date:2023-2-28
 
 <head>
     <meta charset="UTF-8">
-    <title>CSS语法</title>
+    <title>使用CSS美化html页面</title>
     <!--CSS（Cascading style sheets）：层叠样式表，作用是给html中的标签设置样式，来美化html页面。
         书写位置：css有行内样式、内部样式、外部样式
             行内样式：写在标签内部style属性中，属性值是css属性值键值对。代码耦合不利于后期维护，可配合js使用。
@@ -23,7 +23,6 @@ date:2023-2-28
                 }
             </style>
     -->
-
     <!-- 1、外联式，导入css文件    -->
     <!--    <link href="./css/demo.css" rel="stylesheet"/>-->
 
@@ -42,15 +41,7 @@ date:2023-2-28
             height: 300px;
         }
     </style>
-
-</head>
-
-<body>
-    <p>hello world</p>
-    <!-- 3、行内式   -->
-    <p style="color: green">hello world</p>
-
-<!-- css选择器定位方式：
+<!-- css选择器：
    1、标签选择器：直接写标签名，如下定位到所有p标签。
     p{color: red}
    2、类选择器：.开头，根据元素属性class的属性值定位元素 如下定位到所有class=cls的元素   <p class='cls'></p>
@@ -59,6 +50,8 @@ date:2023-2-28
     #p1{color: red}
     4、通配符：*代表所有标签，如
      *{color: red}
+    5、属性选择器，根据元素的属性键值对定位。如下定位input标签属性type的值为text的
+    input[type='text']
 
     css选择器其他说明：
         body div p      # 空格分割为后代选择器，表示body标签下的所有子孙后代中包含的p标签
@@ -68,5 +61,11 @@ date:2023-2-28
 
    css选择器除了在前端定位会使用它来定位元素然后美化元素，在后端爬虫或操作浏览器时也能拿来定位元素然后获取元素信息或者操作元素
     -->
+</head>
+
+<body>
+    <p>hello world</p>
+    <!-- 3、行内式   -->
+    <p style="color: green">hello world</p>
 </body>
 </html>
