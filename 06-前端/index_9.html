@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+使用定位来布局元素、元素隐藏
+author：LBL
+date:2023-3-2
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <!--
+    定位可以解决盒子与盒子之间的层叠问题，定位后的元素可以层叠在其他盒子上，固定在屏幕中的某个位置
+    定位的使用：
+    1、设置定位方式：
+        static静态定位，默认元素摆放方式就是静态
+        relative相对定位，相对定位是相对于元素本身应该在的位置偏移，应用场景：标签小范围移动
+        absolute绝对定位，如果祖辈元素有绝对定位这个元素会相对于祖辈元素进行偏移,没有就是相对于浏览器偏移
+        fixed固定定位，应用场景：网页悬浮框、顶端导航
+        子绝父相：经常使用方式为 父元素使用相对定位 子元素使用绝对定位 这样可以让子元素在父元素范围内任意偏移
+    2、设置偏移值：左右上下 left,right,top,bottom
+    ------------------------------------------------------------------------------------>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+        }
+        .red{
+            background-color: red;
+        }
+
+        .blue{
+            background-color: blue;
+            /* 设置绝对定位，定位偏移值:让蓝盒子始终距离上边界和左边界150px */
+            position: absolute;
+            top: 150px;
+            left: 150px;
+        }
+
+        .green{
+            background-color: green;
+            /* 相对定位:让绿盒子离原位置：距上边界和左边界150px */
+            position: relative;
+            top: 150px;
+            left: 150px;
+        }
+    </style>
+
+    <!--  元素隐藏的两种方式  -->
+    <style>
+        .father{ background-color: black}
+        .son{
+            background-color: aliceblue;
+            /* 隐藏元素怒本身，并在网页中占位置*/
+            /*visibility: hidden;*/
+            /* 隐藏元素怒本身，在网页中不占位置 隐藏display: none; 显示display: block;*/
+            display: none;
+        }
+        /* 当鼠标放到父元素上显示子元素 */
+        .father:hover .son{
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!--用于演示定位的盒子-->
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="green"></div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+</body>
+</html>
