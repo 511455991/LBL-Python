@@ -11,7 +11,7 @@ if __name__ == "__main__":
     my_int, my_float, my_str, my_None, *my_bool= [24, 123.2, "张三", None, True, False]
 
     """ 格式化字符串:% """
-    # %d代表整数。   %95d代表五位整数，不足用0补齐
+    # %d代表整数。   %05d代表五位整数，不足用0补齐
     print("%d    %05d" % (my_int,my_int))
     # %f代表浮点数。  %.2f代表保留两位小数
     print("%.2f" % my_float)
